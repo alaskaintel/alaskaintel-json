@@ -1,0 +1,67 @@
+name: Alaska Intel - Education Sector
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: pipeline
+  cancel-in-progress: false
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/kb907alaska/alaskaintel-data/alaskaintel-pipeline:latest
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout alaskaintel-data
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch Education Feeds
+        env:
+          INGEST_SECRET: ${{ secrets.INGEST_SECRET }}
+        run: |
+          python3 scripts/fetch_ua_system.py
+          python3 scripts/fetch_k12_districts.py
+          python3 scripts/monitor_feeds.py
+          python3 scripts/fetch_intel.py --category education,health,social,recreation
+
+      - name: Commit + Push Data
+        id: git_sync
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git config --global user.name "AlaskaIntel-Bot"
+          git config --global user.email "bot@alaskaintel.com"
+          git add data/ public/ || true
+          
+          if ! git diff --staged --quiet; then
+            git commit -m "intel: education sector sync $(date -u +'%Y-%m-%d %H:%M UTC')"
+            for i in 1 2 3 4 5; do
+              git pull --rebase origin master
+              if git push origin master; then break; fi
+              sleep 5
+            done
+            echo "HAS_CHANGES=true" >> $GITHUB_OUTPUT
+          else
+            echo "HAS_CHANGES=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Sync to R2 (data.alaskaintel.com)
+        if: steps.git_sync.outputs.HAS_CHANGES == 'true'
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+        run: |
+          R2_EP="https://${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com"
+          aws s3 sync data/ s3://alaskaintel-data/ --endpoint-url "$R2_EP" --exclude "*" --include "*.json" --content-type "application/json" --cache-control "no-cache, max-age=0"
+          if [ -d "public" ]; then
+            aws s3 sync public/ s3://alaskaintel-data/ --endpoint-url "$R2_EP" --exclude "*" --include "*.json" --content-type "application/json" --cache-control "no-cache, max-age=0"
+            aws s3 sync public/ s3://alaskaintel-data/ --endpoint-url "$R2_EP" --exclude "*" --include "*.xml" --content-type "application/xml" --cache-control "no-cache, max-age=0"
+          fi
