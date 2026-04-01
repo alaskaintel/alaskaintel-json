@@ -211,4 +211,4 @@ def run_deep_crawl(max_days=30):
 
 if __name__ == "__main__":
     # Crawl backward for specified amount of days natively instead of generic pages
-    run_deep_crawl(max_days=5)
+    run_deep_crawl(max_days=120)
