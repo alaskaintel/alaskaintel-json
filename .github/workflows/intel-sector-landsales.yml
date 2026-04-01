@@ -1,0 +1,43 @@
+name: Fetch DNR Land Sales
+
+on:
+  schedule:
+    # Run once an hour at 25 minutes past the hour.
+    - cron: '25 * * * *'
+  workflow_dispatch:
+
+jobs:
+  fetch_sales:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests cryptography
+        # Using built-in libs primarily but keeping requests around.
+
+    - name: Run Fetch Script
+      run: |
+        python scripts/fetch_dnr_sales.py
+
+    - name: Commit and Push Changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action Data Pipeline"
+        git add data/land_sales/latest_landsales.json
+        # Only commit if there are actually changes
+        if ! git diff-index --quiet HEAD; then
+          git commit -m "Automated DNR Land Sales Pipeline Sync"
+          git push
+        else
+          echo "No new updates to push"
+        fi
