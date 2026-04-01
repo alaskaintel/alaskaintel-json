@@ -12,7 +12,7 @@ import re
 import time
 import requests
 from bs4 import BeautifulSoup
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 from geo_dict import geocode_text
 from geo_milepost import geocode_milemarker
@@ -21,7 +21,7 @@ from scrape_ast import (
     CHROME_UA, BASE_URL, FILE_PATH
 )
 
-DISPATCH_LIST_URL = BASE_URL + '/Home/Dispatches'
+DISPATCH_LIST_URL = BASE_URL + '/Home/Display'
 
 def load_data():
     if os.path.exists(FILE_PATH):
@@ -41,25 +41,27 @@ def is_stolen_vehicle(title, type_val, text):
     lower_t = (title or '').lower() + (type_val or '').lower() + (text or '').lower()
     return 'stolen vehicle' in lower_t or 'vehicle theft' in lower_t
 
-def process_page(page_num, existing_hashes):
-    print(f"  [Scraping Page {page_num}] ...")
+def process_date(target_date, existing_hashes):
+    date_str = target_date.strftime("%-m/%-d/%Y")
+    query_param = f"?dateReceived={date_str}%2012:00:00%20AM"
+    print(f"  [Scraping Date {date_str}] ...")
     try:
         resp = requests.get(
-            f"{DISPATCH_LIST_URL}?page={page_num}",
+            f"{DISPATCH_LIST_URL}{query_param}",
             headers={'User-Agent': CHROME_UA},
             timeout=15
         )
         resp.raise_for_status()
     except Exception as e:
-        print(f"  ✗ Failed to load page {page_num}: {e}")
-        return False, []
+        print(f"  ✗ Failed to load date {date_str}: {e}")
+        return True, []
 
     soup = BeautifulSoup(resp.text, 'html.parser')
     links = soup.find_all('a', href=re.compile(r'DisplayIncident\?incidentNumber=AK'))
     
     if not links:
-        print(f"  No incident links found on page {page_num}. Terminating crawl.")
-        return False, []
+        print(f"  No incident links found on {date_str}.")
+        return True, []
 
     discovered = []
     seen_on_page = set()
@@ -172,9 +174,9 @@ def process_page(page_num, existing_hashes):
 
     return True, discovered
 
-def run_deep_crawl(max_pages=20):
+def run_deep_crawl(max_days=30):
     print("=" * 60)
-    print("Starting Deep Stolen Vehicle Crawler")
+    print("Starting Deep Stolen Vehicle Crawler (Daily Iteration)")
     print("=" * 60)
     
     existing = load_data()
@@ -182,11 +184,11 @@ def run_deep_crawl(max_pages=20):
     print(f"Loaded {len(existing)} existing records from database.")
     
     new_vehicles = []
+    current_date = datetime.now()
     
-    for page in range(1, max_pages + 1):
-        has_content, discovered = process_page(page, existing_hashes)
-        if not has_content:
-            break
+    for i in range(max_days):
+        target_date = current_date - timedelta(days=i)
+        has_content, discovered = process_date(target_date, existing_hashes)
         
         if discovered:
             new_vehicles.extend(discovered)
@@ -208,5 +210,5 @@ def run_deep_crawl(max_pages=20):
         print("\nNo new historic stolen vehicles discovered.")
 
 if __name__ == "__main__":
-    # Max pages to crawl at a time. The site has 3000+ pages, but we can do batches
-    run_deep_crawl(max_pages=30)
+    # Crawl backward for specified amount of days natively instead of generic pages
+    run_deep_crawl(max_days=5)
