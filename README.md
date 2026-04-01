@@ -22,9 +22,12 @@ We use GitHub Actions to run scheduled web-scrapers, NLP text extractors, and da
 - **They commit the resulting `.json` files directly back to this repository.**
 
 ### 2. The Static JSON API (Free CDN)
-Once the GitHub Action commits the `.json` data to the `main` branch, we serve those files to our React/Vue/Astro frontend applications.
-- We bypass standard servers entirely.
+Once the orchestration scripts process the incoming feeds, the `.json` data is pushed natively to the `main` branch of `github.com/alaskaintel/intel-json`. We then serve those public files directly to our React/Vue/Astro frontend applications via Cloudflare R2 and Raw GitHub.
+- We bypass standard database servers entirely.
 - By fetching from `https://raw.githubusercontent.com/alaskaintel/intel-json/main/data/...`, we achieve blazingly fast global delivery at $0 infrastructure cost.
+
+### 3. Deep Backfill Pipeline & Smart Archive
+Massive historical intelligence is harvested via the `deep_backfill.py` multi-threaded crawler, bypassing generic RSS limits by securely traversing pagination. Because this historical data represents gigabytes of JSON, the pipeline auto-partitions historical extracts into hyper-optimized daily buckets (`data/archive/YYYY/MM/YYYY-MM-DD.json`). This protects performance and guarantees no historical file ever bloats over ~50KB.
 
 ---
 
@@ -68,9 +71,9 @@ Contains the source code for the actual scrapers and data processors.
 Contains standard JSON Schemas or Zod definition files. All pipelines must generate data that strictly matches these schemas before committing, preventing malformed data from crashing client frontend apps.
 
 ### `/data/`
-The actual JSON payload directory. This is where the GitHub Actions drop their minified output files. **Humans do not manually edit these files.**
-- *Active Feeds:* `/data/latest/`
-- *Historical Dumps:* `/data/archives/YYYY/` (This allows us to leverage unlimited storage for massive historical datasets).
+The actual JSON payload directory. This is where the synchronization pipeline (`run-pipeline.sh`) drops minified and strictly formatted output files. **Humans never manually edit these files.**
+- *Active Master Ledger:* `/data/latest_intel.json`
+- *SMART Historical Archives:* `/data/archive/YYYY/MM/YYYY-MM-DD.json` (The algorithm parses exact historic timestamps and routes elements into localized daily buckets, bypassing flat-folder limits and deduplicating automatically).
 
 ### `/docs/`
 Internal documentation detailing the exact structure of incoming data sources and data dictionaries.
