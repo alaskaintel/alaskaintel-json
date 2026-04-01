@@ -28,6 +28,30 @@ Once the GitHub Action commits the `.json` data to the `main` branch, we serve t
 
 ---
 
+## 📊 Active Signal Feeds (Snapshot)
+
+This table tracks the current volume of live intelligence sources stored in the static JSON engine. 
+
+| Source Node | Type | Total Signals | Last Pulled (Local) |
+|---|---|---|---|
+| `afs_fires.json` | Array | **15** | 2026-04-01 09:47:45 |
+| `ak_school_districts.json` | Array | **54** | 2026-04-01 08:57:13 |
+| `ak_schools.json` | Array | **731** | 2026-04-01 08:57:13 |
+| `aviation.json` | Object | **5** | 2026-04-01 09:47:45 |
+| `earthquakes.json` | Object | **6** | 2026-04-01 09:47:45 |
+| `k12_districts.json` | Array | **1,095** | 2026-04-01 08:57:13 |
+| `legislature.json` | Object | **7** | 2026-04-01 08:57:13 |
+| `muni_notices.json` | Array | **100** | 2026-04-01 08:57:13 |
+| `nws_cap.json` | Array | **3** | 2026-04-01 08:57:13 |
+| `public_notices_state.json` | Array | **1** | 2026-04-01 08:57:13 |
+| `stolen_vehicles.json` | Array | **3,084** | 2026-04-01 08:57:13 |
+| `stolen_vehicles_toc.json` | Object | **309** | 2026-04-01 08:57:13 |
+| `ua_news.json` | Array | **9** | 2026-04-01 08:57:13 |
+| `venues.json` | Object | **1** | 2026-04-01 08:57:13 |
+| **STATEWIDE TOTAL** | | **5,420** | |
+
+---
+
 ## 📂 Repository Structure
 
 The architecture is strictly separated to ensure bots, developers, and GitHub Actions never trip over each other.
