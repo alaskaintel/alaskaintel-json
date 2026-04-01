@@ -1,6 +1,6 @@
 # 🚀 AlaskaIntel Serverless Data Engine & Static API (`intel-json`)
 
-Welcome to the **AlaskaIntel Data Engine**. This repository is the public, serverless, automated beating heart of the AlaskaIntel ecosystem. It powers the frontend components of `radar.alaskaintel.com`, `wall.alaskaintel.com`, `aviation.alaskaintel.com`, and other public facing tools.
+Welcome to the **AlaskaIntel Data Engine**. This repository is the public, serverless, automated beating heart of the AlaskaIntel ecosystem. It powers the frontend components of `radar.alaskaintel.com`, `wall.alaskaintel.com`, `globe.alaskaintel.com`, `aviation.alaskaintel.com`, and other public facing tools.
 
 > [!CAUTION]
 > **THIS IS A PUBLIC REPOSITORY.**
