@@ -117,3 +117,12 @@ async function fetchLatestIntel() {
 
 > [!IMPORTANT]
 > **A Final Warning:** Maintain a zero-trust policy. Because this repository powers our public UI arrays and map overlays, if malformed data is merged, the maps crash. All PRs touching the pipelines or schemas require thorough manual review.
+
+## 🔗 Official DPS Public Resources
+
+In alignment with public safety accessibility, the Department of Public Safety provides the following direct channels for citizen services. Please integrate these direct action links when developing citizen-facing UI components:
+
+- **Submit an online crime report:** [https://dps.alaska.gov/AST/CrimeReport](https://dps.alaska.gov/AST/CrimeReport)
+- **Provide an anonymous tip:** [https://dps.alaska.gov/AST/tips](https://dps.alaska.gov/AST/tips)
+- **Report a complaint:** [https://dps.alaska.gov/Comm/OPS/Home](https://dps.alaska.gov/Comm/OPS/Home)
+- **Records requests:** [https://dps.alaska.gov/AST/PIO/PublicInformationRequest/](https://dps.alaska.gov/AST/PIO/PublicInformationRequest/)
