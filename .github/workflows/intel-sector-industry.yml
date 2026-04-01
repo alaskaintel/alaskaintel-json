@@ -41,8 +41,8 @@ jobs:
           if ! git diff --staged --quiet; then
             git commit -m "intel: industry sector sync $(date -u +'%Y-%m-%d %H:%M UTC')"
             for i in 1 2 3 4 5; do
-              git pull --rebase origin master
-              if git push origin master; then break; fi
+              git pull --rebase origin main
+              if git push origin main; then break; fi
               sleep 5
             done
             echo "HAS_CHANGES=true" >> $GITHUB_OUTPUT
