@@ -28,6 +28,9 @@ from datetime import datetime, timezone, timedelta
 from typing import List, Dict
 import ssl
 from geo_dict import geocode_text, geocode_anchorage_address, ANCHORAGE_CENTROID
+from scrapers.muni_agendas import fetch_anchorage_assembly_signals
+from scrapers.court_notices import fetch_court_signals
+from scrapers.events_centers import fetch_event_center_signals
 
 ssl._create_default_https_context = ssl._create_unverified_context
 
@@ -794,7 +797,7 @@ def fetch_feeds() -> List[Dict]:
                     # Attempt to extract precise historical dates routed inside the external URL path.
                     # Ex: /releases/3-30-22 Bing's Landing... -> 2022-03-30
                     if not published_iso:
-                        url_date_match = re.search(r'(?:/| |^)(\d{1,2})[-._/](\d{1,2})[-._/](\d{2,4})\b', entry.get('link', '') + ' ' + title)
+                        url_date_match = re.search(r'(?:/| |^)(\d{1,2})[-._/](\d{1,2})[-._/](\d{2,4})(?:\b|(?=[A-Za-z%]))', entry.get('link', '') + ' ' + title)
                         if url_date_match:
                             try:
                                 m, d, y = url_date_match.groups()
@@ -807,12 +810,10 @@ def fetch_feeds() -> List[Dict]:
                                 pass
 
                     if not published_iso:
-                        # For AST/DPS sources, scrape_ast.py owns the timestamps — skip
-                        if feed['name'] in ('Alaska State Troopers', 'Alaska DPS'):
-                            continue
-                        
-                        # Apply an extreme 24-hour safeguard before dumping a live generic timestamp 
-                        published_iso = datetime.now(timezone.utc).isoformat()
+                        # User constraint: If no confirmed date on the intel, do not put it into the feed
+                        # to prevent older or dateless articles from polluting "Today in Alaska".
+                        print(f"      [!] Dropping item: No confirmed date found for '{title}'")
+                        continue
                 # Prefer full content over summary for better 10% snippets
                 full_content = ""
                 if entry.get('content'):
@@ -1013,6 +1014,10 @@ CATEGORY_TO_SECTOR = {
     "Radio": "governance",
     "Regional": "governance",
     "News": "governance",
+    "Municipal": "governance",
+    "Judicial": "governance",
+    "Events": "society",
+    "Performing Arts": "society",
 }
 
 ENTITY_KEYWORDS: Dict[str, List[str]] = {
@@ -1518,6 +1523,31 @@ def main():
     
     new_intel = fetch_feeds()
     
+    # === NEW: Municipal & Judicial Scrapers ===
+    try:
+        print("🏛️ Scraping Municipal Agendas...")
+        muni_signals = fetch_anchorage_assembly_signals()
+        new_intel.extend(muni_signals)
+        print(f"✓ Added {len(muni_signals)} municipal signals")
+    except Exception as e:
+        print(f"Warning: Municipal scraper failed: {e}")
+
+    try:
+        print("⚖️ Scraping Court Notices...")
+        court_signals = fetch_court_signals()
+        new_intel.extend(court_signals)
+        print(f"✓ Added {len(court_signals)} court signals")
+    except Exception as e:
+        print(f"Warning: Court scraper failed: {e}")
+
+    try:
+        print("🎭 Scraping Event Centers...")
+        event_signals = fetch_event_center_signals()
+        new_intel.extend(event_signals)
+        print(f"✓ Added {len(event_signals)} event signals")
+    except Exception as e:
+        print(f"Warning: Event scraper failed: {e}")
+
     print("\n" + "=" * 60)
     print(f"Successfully scraped {len(new_intel)} new intel items")
     print("=" * 60)
