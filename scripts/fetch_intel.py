@@ -1772,6 +1772,123 @@ def main():
     print(f"\n✓ Data saved to data/latest_intel.json")
     print(f"✓ Summary saved to data/intel_summary.json")
 
+    # === NEW: Inject custom scrapers (Global Map Layers) ===
+    # Ported from private pipeline to ensure public signal parity
+    global_layers = [
+        ('data/usace_notices.json', 'USACE Alaska District'),
+        ('data/dec_spills.json', 'Alaska DEC Spills'),
+        ('data/afs_fires.json', 'AFS Fires'), 
+        ('data/ua_grants.json', 'UA Grants'), 
+        ('data/muni_notices.json', 'Anchorage Municipality'),
+        ('data/511ak.json', 'Alaska 511 Traffic'),
+        ('data/earthquakes.json', 'USGS Earthquakes'),
+        ('data/wildfires.json', 'Active Wildfires'),
+        ('data/weather.json', 'NWS Weather Alerts'),
+        ('data/aviation.json', 'Aviation Incidents'),
+        ('data/fisheries.json', 'Alaska Fisheries'),
+        ('data/asd_news.json', 'Anchorage School District'),
+        ('data/ua_news.json', 'University of Alaska System'),
+        ('data/k12_districts.json', 'Alaska K-12 Districts')
+    ]
+    
+    for scraper_file, name in global_layers:
+        try:
+            if os.path.exists(scraper_file):
+                with open(scraper_file, 'r') as sf:
+                    scraper_data = json.load(sf)
+                
+                items_to_inject = []
+                
+                # Flatten the data based on known schemas
+                if isinstance(scraper_data, list):
+                    items_to_inject = scraper_data
+                elif isinstance(scraper_data, dict):
+                    if "features" in scraper_data and isinstance(scraper_data["features"], list):
+                        items_to_inject.extend(scraper_data["features"])
+                    if "earthquakes" in scraper_data:
+                        items_to_inject.extend(scraper_data["earthquakes"])
+                    if "wildfires" in scraper_data:
+                        items_to_inject.extend(scraper_data["wildfires"])
+                    if "items" in scraper_data and isinstance(scraper_data["items"], list):
+                        items_to_inject.extend(scraper_data["items"])
+                    if "alerts" in scraper_data and "items" in scraper_data["alerts"]:
+                        items_to_inject.extend(scraper_data["alerts"]["items"])
+                    if "tfrs" in scraper_data and "items" in scraper_data["tfrs"]:
+                        items_to_inject.extend(scraper_data["tfrs"]["items"])
+                    if "airports" in scraper_data and "stations" in scraper_data["airports"]:
+                        for st in scraper_data["airports"]["stations"]:
+                            if st.get("status") == "delayed":
+                                items_to_inject.append(st)
+
+                with open('data/latest_intel.json', 'r') as f:
+                    current_feed = json.load(f)
+                
+                existing_hashes = {item.get('hash') for item in current_feed if item.get('hash')}
+                existing_ids = {item.get('id') for item in current_feed if item.get('id')}
+                injected = 0
+                
+                for item in items_to_inject:
+                    h = item.get('hash') or item.get('id')
+                    
+                    if h and (h not in existing_hashes) and (h not in existing_ids):
+                        if "timestamp" not in item:
+                            item["timestamp"] = item.get("published") or item.get("time") or item.get("effective") or datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z')
+                        if "title" not in item:
+                            if "place" in item and "magnitude" in item:
+                                item["title"] = f"Magnitude {item['magnitude']} Earthquake - {item['place']}"
+                            elif "headline" in item:
+                                item["title"] = item["headline"]
+                            elif "name" in item:
+                                item["title"] = item["name"]
+                            elif "notam_id" in item:
+                                item["title"] = f"Aviation TFR: {item.get('description', '')}"
+                            else:
+                                item["title"] = "System Signal Update"
+                        
+                        if "url" not in item:
+                            item["url"] = item.get("link") or item.get("articleUrl") or item.get("source_url") or "#"
+                        if "source" not in item:
+                            item["source"] = name
+
+                        current_feed.append(item)
+                        existing_hashes.add(h)
+                        existing_ids.add(h)
+                        injected += 1
+                
+                if injected > 0:
+                    current_feed.sort(key=lambda x: str(x.get('timestamp', x.get('published', ''))), reverse=True)
+                    with open('data/latest_intel.json', 'w') as f:
+                        json.dump(current_feed, f, indent=2)
+                print(f"✓ Injected {injected} new items from {name}")
+        except Exception as e:
+            print(f"Warning: Could not merge {name}: {e}")
+
+    # === MONOREPO SYNC ===
+    # Sync the fresh data to the monorepo root for Edge Proxy (datagit)
+    try:
+        import shutil
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        root_dir = os.path.abspath(os.path.join(script_dir, "../../../"))
+        root_data_dir = os.path.join(root_dir, "data")
+        
+        if os.path.exists(root_data_dir) and os.path.isdir(root_data_dir):
+            print(f"🔄 Syncing to monorepo root: {root_data_dir}")
+            files_to_sync = [
+                "latest_intel.json", "intel_summary.json", "source_health.json",
+                "feed_scores.json", "feed_status.json", "feed_last_seen.json"
+            ]
+            for filename in files_to_sync:
+                src = os.path.join("data", filename)
+                dst = os.path.join(root_data_dir, filename)
+                if os.path.exists(src):
+                    shutil.copy2(src, dst)
+                    frontend_public_data = os.path.join(root_dir, "frontends/www.alaskaintel.com/public/data", filename)
+                    if os.path.exists(os.path.dirname(frontend_public_data)):
+                        shutil.copy2(src, frontend_public_data)
+            print("✓ Monorepo sync complete.")
+    except Exception as e:
+        print(f"Warning: Monorepo sync failed: {e}")
+
 
 if __name__ == "__main__":
     main()
