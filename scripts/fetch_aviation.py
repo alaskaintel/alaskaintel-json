@@ -13,6 +13,7 @@ Sources:
 import json
 import os
 import re
+import csv
 import requests
 from datetime import datetime, timezone
 
@@ -22,6 +23,10 @@ TFR_DETAIL_URL = "https://tfr.faa.gov/save_pages/detail_{notam_id}.html"
 
 # FAA Airport Status (no auth required)
 AIRPORT_STATUS_URL = "https://nasstatus.faa.gov/api/airport-status-information"
+
+# OurAirports dataset for comprehensive runways
+OURAIRPORTS_URL = "https://davidmegginson.github.io/ourairports-data/airports.csv"
+OURAIRPORTS_CSV_PATH = os.path.join("data", "ourairports.csv")
 
 # Key Alaska airports
 ALASKA_AIRPORTS = [
@@ -159,7 +164,51 @@ def fetch_airport_status():
     return statuses
 
 
-def save_data(tfrs, airports):
+def fetch_ak_runways():
+    """Download OurAirports CSV, save locally to keep public, and extract ALASKA runways."""
+    print("Fetching OurAirports global dataset...")
+    runways = []
+    try:
+        resp = requests.get(OURAIRPORTS_URL, stream=True, timeout=30)
+        resp.raise_for_status()
+        
+        # Save to data/ourairports.csv so it remains publicly available
+        os.makedirs("data", exist_ok=True)
+        with open(OURAIRPORTS_CSV_PATH, 'wb') as f:
+            for chunk in resp.iter_content(chunk_size=8192):
+                f.write(chunk)
+                
+        # Parse the CSV locally
+        with open(OURAIRPORTS_CSV_PATH, 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                if row.get("iso_region") == "US-AK":
+                    try:
+                        ele = int(row["elevation_ft"]) if row.get("elevation_ft") else None
+                    except ValueError:
+                        ele = None
+                        
+                    runways.append({
+                        "ident": row.get("ident", ""),
+                        "name": row.get("name", ""),
+                        "type": row.get("type", ""),
+                        "lat": float(row["latitude_deg"]) if row.get("latitude_deg") else 0.0,
+                        "lng": float(row["longitude_deg"]) if row.get("longitude_deg") else 0.0,
+                        "elevation_ft": ele,
+                        "municipality": row.get("municipality", ""),
+                        "scheduled_service": row.get("scheduled_service") == "yes",
+                        "gps_code": row.get("gps_code", "")
+                    })
+                    
+        print(f"  ✓ Saved to {OURAIRPORTS_CSV_PATH}")
+        print(f"  ✓ Extracted {len(runways)} Alaska runways")
+    except Exception as e:
+        print(f"  ⚠️  OurAirports fetch error: {e}")
+        
+    return runways
+
+
+def save_data(tfrs, airports, runways):
     """Save aviation data to JSON."""
     os.makedirs("data", exist_ok=True)
 
@@ -167,8 +216,8 @@ def save_data(tfrs, airports):
 
     output = {
         "updated": datetime.now(timezone.utc).isoformat(),
-        "source": "Federal Aviation Administration",
-        "source_url": "https://www.faa.gov/",
+        "source": "FAA & OurAirports",
+        "source_url": "https://www.faa.gov/, https://ourairports.com/",
         "tfrs": {
             "count": len(tfrs),
             "items": tfrs,
@@ -178,13 +227,18 @@ def save_data(tfrs, airports):
             "delayed": delayed_count,
             "stations": airports,
         },
+        "runways": {
+            "count": len(runways),
+            "items": runways,
+            "source": "OurAirports.com"
+        }
     }
 
     with open(OUTPUT_PATH, "w") as f:
         json.dump(output, f, indent=2)
 
     print(f"\n✓ Saved aviation data to {OUTPUT_PATH}")
-    print(f"  {len(tfrs)} TFRs, {len(airports)} airports ({delayed_count} delayed)")
+    print(f"  {len(tfrs)} TFRs, {len(airports)} airports ({delayed_count} delayed), {len(runways)} local strips & runways")
 
 
 def main():
@@ -194,7 +248,8 @@ def main():
 
     tfrs = fetch_tfrs()
     airports = fetch_airport_status()
-    save_data(tfrs, airports)
+    runways = fetch_ak_runways()
+    save_data(tfrs, airports, runways)
 
 
 if __name__ == "__main__":
