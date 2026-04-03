@@ -1,0 +1,55 @@
+name: "⚡ Pipeline Fast (30min)"
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"   # Every 30 min — core news + radio
+  repository_dispatch:
+    types: [cloudflare-fast-trigger]
+  workflow_dispatch:
+
+concurrency:
+  group: pipeline-fast
+  cancel-in-progress: false
+
+jobs:
+  pipeline:
+    name: "Core RSS Aggregator + D1 Sync"
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    container:
+      image: ghcr.io/alaskaintel/alaskaintel-json/alaskaintel-pipeline:latest
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+
+      - name: Core RSS Aggregator
+        env:
+          INGEST_SECRET: ${{ secrets.INGEST_SECRET }}
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+        run: python3 pipelines/fetch_intel.py --priority=high --category=News,Radio,Politics,Maritime
+
+      - name: Commit + Push
+        id: git_sync
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git config --global user.name "AlaskaIntel-Bot"
+          git config --global user.email "bot@alaskaintel.com"
+          git add data/ public/ || true
+          if ! git diff --staged --quiet; then
+            git commit -m "intel: [fast] RSS sync $(date -u +'%H:%M UTC')"
+            for i in 1 2 3 4 5; do
+              git pull --rebase origin master
+              if git push origin master; then break; fi
+              sleep 5
+            done
+            echo "HAS_CHANGES=true" >> $GITHUB_OUTPUT
+          else
+            echo "HAS_CHANGES=false" >> $GITHUB_OUTPUT
+          fi
+

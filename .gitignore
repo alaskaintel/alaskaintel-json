@@ -1,0 +1,20 @@
+# Data files to exclude (internal pipeline caches, not for public consumption)
+*.log
+.env
+node_modules/
+__pycache__/
+
+# Large internal files not for public consumption
+feed_http_cache.json
+feed_probation.json
+r2_link_archive.jsonl
+r2_seen_hashes.txt
+backfill_progress.json
+
+# Keep archive/ but exclude very large backfill batches
+backfill/
+
+# Local internal use only (NLP extracts)
+data/bulletin-extracts/
+data/missing-persons/bulletin_age_cache.json
+.DS_Store

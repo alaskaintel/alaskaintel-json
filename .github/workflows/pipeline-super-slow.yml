@@ -1,0 +1,97 @@
+name: "🌊🌊 Pipeline Super Slow (6hr — Full Harvest)"
+
+on:
+  repository_dispatch:
+    types: [cloudflare-super-slow-trigger]
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */6 * * *"   # Safety net: every 6h UTC if CF cron fails
+
+concurrency:
+  group: pipeline-super-slow
+  cancel-in-progress: false
+
+jobs:
+  pipeline:
+    name: "Full Intel Harvest — All 15 Sources"
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    container:
+      image: ghcr.io/alaskaintel/alaskaintel-json/alaskaintel-pipeline:latest
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+
+      # —— CORE ——
+      - name: "1. Core RSS Aggregator"
+        env:
+          INGEST_SECRET: ${{ secrets.INGEST_SECRET }}
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+        run: python3 pipelines/fetch_intel.py
+
+      # —— SAFETY ——
+      - name: "2. Safety & Emergency"
+        run: |
+          python3 pipelines/scrape_ast.py        || echo "⚠️ AST failed"
+          python3 pipelines/fetch_earthquakes.py || echo "⚠️ Earthquakes failed"
+          python3 pipelines/fetch_wildfires.py   || echo "⚠️ Wildfires failed"
+          python3 pipelines/fetch_weather.py     || echo "⚠️ Weather failed"
+
+      # —— GOVERNMENT ——
+      - name: "3. Government & Regulatory"
+        run: |
+          python3 pipelines/fetch_legislature.py || echo "⚠️ Legislature failed"
+          python3 pipelines/fetch_muni.py        || echo "⚠️ Muni failed"
+          python3 pipelines/fetch_dec.py         || echo "⚠️ DEC failed"
+          python3 pipelines/fetch_usace.py       || echo "⚠️ USACE failed"
+
+      # —— NATURAL RESOURCES ——
+      - name: "4. Natural Resources"
+        run: |
+          python3 pipelines/fetch_fisheries.py  || echo "⚠️ Fisheries failed"
+          python3 pipelines/fetch_noaa.py       || echo "⚠️ NOAA failed"
+          python3 pipelines/fetch_wildlife.py   || echo "⚠️ Wildlife failed"
+
+      # —— TRANSPORT & EDUCATION ——
+      - name: "5. Transport & Education"
+        env:
+          ALASKA_511_API_KEY: ${{ secrets.ALASKA_511_API_KEY }}
+        run: |
+          python3 pipelines/fetch_511ak.py        || echo "⚠️ 511 failed"
+          python3 pipelines/fetch_aviation.py     || echo "⚠️ Aviation failed"
+          python3 pipelines/fetch_ua_system.py    || echo "⚠️ UA System failed"
+          python3 pipelines/scrape_ua_grants.py   || echo "⚠️ UA Grants failed"
+          python3 pipelines/fetch_asd.py          || echo "⚠️ ASD failed"
+          python3 pipelines/fetch_k12_districts.py || echo "⚠️ K12 Districts failed"
+
+      # —— FIRE & COMMUNITY ——
+      - name: "6. Fire & Community"
+        run: |
+          python3 pipelines/scrape_afs_fires.py  || echo "⚠️ AFS Fires failed"
+          python3 pipelines/scrape_venues.py     || echo "⚠️ Venues failed"
+
+      - name: Commit + Push
+        id: git_sync
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git config --global user.name "AlaskaIntel-Bot"
+          git config --global user.email "bot@alaskaintel.com"
+          git add data/ public/ || true
+          if ! git diff --staged --quiet; then
+            git commit -m "intel: [super-slow] full harvest $(date -u +'%Y-%m-%d %H:%M UTC')"
+            for i in 1 2 3 4 5; do
+              git pull --rebase origin master
+              if git push origin master; then break; fi
+              sleep 5
+            done
+            echo "HAS_CHANGES=true" >> $GITHUB_OUTPUT
+          else
+            echo "HAS_CHANGES=false" >> $GITHUB_OUTPUT
+          fi
+
