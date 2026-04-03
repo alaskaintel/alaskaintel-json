@@ -91,8 +91,8 @@ FEEDS = [
     {"name": "BLM Alaska", "url": "https://blm.gov/press-release/alaska/rss", "category": "Government"},
     {"name": "Anchorage Municipality", "url": "http://www.muni.org/PublicNotice/_layouts/15/listfeed.aspx?List={416baa47-c958-4cbb-bd0b-7c29afddb8c3}", "category": "Government"},
     {"name": "USACE Alaska District", "url": "https://poa.usace.army.mil/Contact/RSS", "category": "Government"},
-    {"name": "Alaska Legislature", "url": "https://akleg.gov/basis/rss.asp", "category": "Government"},
-    {"name": "UAF Geophysical Institute", "url": "https://www.gi.alaska.edu/rss.xml", "category": "Science"},
+    # RETIRED: {"name": "Alaska Legislature", "url": "https://akleg.gov/basis/rss.asp", "category": "Government"},
+    # RETIRED: {"name": "UAF Geophysical Institute", "url": "https://www.gi.alaska.edu/rss.xml", "category": "Science"},
 
     # === CITY & BOROUGH GOVERNMENT — VERIFIED LIVE RSS (discovered 2026-03-23) ===
     {"name": "Anchorage Police Dept", "url": "https://www.anchoragepolice.com/news?format=rss", "category": "Safety"},
@@ -129,7 +129,7 @@ FEEDS = [
     {"name": "Chugach Alaska Corp", "url": "https://www.chugach.com/feed", "category": "Native"},
     {"name": "Sitnasuak Native Corp", "url": "https://snc.org/feed", "category": "Native"},
     {"name": "Alaska Federation of Natives", "url": "https://nativefederation.org/feed", "category": "Native"},
-    {"name": "First Alaskans Institute", "url": "https://firstalaskans.org/feed", "category": "Native"},
+    # RETIRED: {"name": "First Alaskans Institute", "url": "https://firstalaskans.org/feed", "category": "Native"},
     {"name": "Native American Law Blog", "url": "https://hklaw.com/en/insights/blogs/native-american-law-blog/feed", "category": "Native"},
     
     # === SPECIALIZED FISHERIES (59-66) ===
@@ -395,7 +395,7 @@ FEEDS = [
 
     # === ALASKA NATIVE ADVOCACY & POLICY ===
     {"name": "Alaska Federation of Natives", "url": "https://www.nativefederation.org/feed", "category": "Native"},
-    {"name": "First Alaskans Institute", "url": "https://www.firstalaskans.org/feed", "category": "Native"},
+    # RETIRED: {"name": "First Alaskans Institute", "url": "https://www.firstalaskans.org/feed", "category": "Native"},
     {"name": "Alaska Native Coalition", "url": "https://www.alaskanativecoalition.org/feed", "category": "Native"},
     {"name": "Kawerak Inc (Bering Strait)", "url": "https://www.kawerak.org/feed", "category": "Native"},
     {"name": "Association of AK Housing Auth", "url": "https://theaaha.org/feed", "category": "Native"},
