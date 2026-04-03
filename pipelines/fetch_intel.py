@@ -67,7 +67,7 @@ FEEDS = [
     {"name": "Homer News", "url": "https://homernews.com/feed", "category": "Regional"},
     {"name": "The Cordova Times", "url": "https://thecordovatimes.com/feed", "category": "Regional"},
     {"name": "Petersburg Pilot", "url": "https://petersburgpilot.com/rss", "category": "Regional"},
-    {"name": "Anchorage Daily News", "url": "https://adn.com/feed", "category": "News"},
+    {"name": "Anchorage Daily News", "url": "https://www.adn.com/arc/outboundfeeds/rss/", "category": "News"},
     {"name": "Fairbanks News-Miner", "url": "https://newsminer.com/search/?f=rss", "category": "Regional"},
     {"name": "Kodiak Daily Mirror", "url": "https://kodiakdailymirror.com/search/?f=rss", "category": "Regional"},
     {"name": "Mat-Su Frontiersman", "url": "https://frontiersman.com/search/?f=rss", "category": "Regional"},
