@@ -17,7 +17,7 @@ from datetime import datetime
 SITEMAP_PATH   = "public/sitemaps/sitemap-pages.xml"
 NEWS_SITEMAP   = "public/sitemap-news.xml"
 FEEDS_DIR      = "public/sitemaps"
-INDEX_PATH     = "public/sitemap.xml"
+INDEX_PATH     = "public/sitemap-index.xml"
 INTEL_FILE     = "data/latest_intel.json"
 BASE_URL       = "https://alaskaintel.com"
 
@@ -147,7 +147,7 @@ def generate_sitemap_index(feed_slugs: list[str]):
 
     with open(INDEX_PATH, "w") as f:
         f.write("\n".join(xml))
-    print(f"  ✓ sitemap.xml (INDEX) — {len(sitemaps)} sitemaps listed")
+    print(f"  ✓ sitemap-index.xml (INDEX) — {len(sitemaps)} sitemaps listed")
 
 
 def generate_news_sitemap(all_items: list[dict]):

@@ -772,6 +772,23 @@ def fetch_feeds() -> List[Dict]:
                             if img_match:
                                 image_url = img_match.group(1)
                 
+                # Extract image credit if available
+                image_credit = None
+                if image_url:
+                    # 1. Try media:credit (standard WordPress/News metadata)
+                    if hasattr(entry, 'media_credit') and entry.media_credit:
+                        credit_val = entry.media_credit[0] if isinstance(entry.media_credit, list) else entry.media_credit
+                        if isinstance(credit_val, dict):
+                            image_credit = credit_val.get('content') or credit_val.get('value')
+                        else:
+                            image_credit = str(credit_val)
+                    
+                    # 2. Try dc:creator as fallback for credit if it looks like a person's name
+                    if not image_credit and hasattr(entry, 'author') and entry.author:
+                        image_credit = entry.author
+                    elif not image_credit and hasattr(entry, 'dc_creator') and entry.dc_creator:
+                        image_credit = entry.dc_creator
+
                 # === HAWAII VOLCANO / EARTHQUAKE FILTER ===
                 # USGS and other federal feeds often leak Hawaiian data into the ALASKA feeds
                 if "hawaii" in combined_text_for_filter or "hvo " in combined_text_for_filter or "kilauea" in combined_text_for_filter or "mauna" in combined_text_for_filter:
@@ -842,6 +859,7 @@ def fetch_feeds() -> List[Dict]:
                     "dataTag": build_data_tag(category, title, snippet_base),
                     "sourceAttribution": f"Source: {feed['name']}",
                     "imageUrl": image_url,
+                    "imageCredit": image_credit,
                     "timestamp": published_iso,
                     # === SIGNAL ENGINE FIELDS ===
                     "impactScore":  impact,
