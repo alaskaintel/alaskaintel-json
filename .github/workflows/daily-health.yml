@@ -1,0 +1,65 @@
+name: Daily Feed Health & Auto-Heal
+
+on:
+  schedule:
+    # Runs at 14:00 UTC (06:00 AKDT / 05:00 AKST) so the email lands in the morning
+    - cron: '0 14 * * *'
+  workflow_dispatch:     # Allow manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    env:
+      AK511_API_KEY:   ${{ secrets.AK511_API_KEY }}
+      INGEST_SECRET:   ${{ secrets.INGEST_SECRET }}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install feedparser requests beautifulsoup4
+          
+      - name: Run Health Monitor (Probation Tracking)
+        run: python3 pipelines/monitor_feeds.py || true
+        
+      - name: Run Auto-Healer (Fix Broken Feeds)
+        run: python3 pipelines/auto_heal_feeds.py || true
+
+      - name: Fetch 511AK Road Events (Construction / Closures)
+        run: python3 pipelines/fetch_511ak.py || true
+        # Requires AK511_API_KEY secret. No-ops gracefully if key not set.
+
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add data/feed_health_report.json data/feed_probation.json pipelines/fetch_intel.py || true
+          
+          # Only commit if there are changes
+          if ! git diff --staged --quiet; then
+            git commit -m "🤖 Auto-Heal: Update feed health and patch broken endpoints [skip ci]"
+            git push
+          else
+            echo "No feed changes or health updates to commit."
+          fi
+
+      - name: Dispatch Daily Health Email Report
+        env:
+          SMTP_SERVER:   ${{ secrets.SMTP_SERVER }}
+          SMTP_PORT:     ${{ secrets.SMTP_PORT }}
+          SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+        run: python3 pipelines/email_daily_report.py || true
+

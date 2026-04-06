@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AlaskaIntel Signal",
+  "type": "object",
+  "required": ["id", "title", "timestamp", "source", "topic"],
+  "properties": {
+    "id": { "type": "string" },
+    "title": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "source": { "type": "string" },
+    "topic": { "type": "string" },
+    "articleUrl": { "type": "string" },
+    "sourceUrl": { "type": "string" },
+    "summary": { "type": "string" },
+    "impactScore": { "type": "integer", "minimum": 0, "maximum": 10 },
+    "region": { "type": "string" },
+    "predictive_weight": { 
+      "type": "integer", 
+      "minimum": 0, 
+      "maximum": 10,
+      "description": "Probability weight for future events or intent-to-act signals."
+    },
+    "document_ref": {
+      "type": "string",
+      "description": "Reference to the source document (PDF, agenda, or court filing)."
+    }
+  }
+}

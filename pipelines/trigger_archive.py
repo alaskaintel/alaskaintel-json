@@ -1,0 +1,2 @@
+from fetch_intel import archive_daily_snapshot
+archive_daily_snapshot()

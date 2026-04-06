@@ -1,0 +1,54 @@
+name: Alaska Intel - MMIP Sector
+
+on:
+  schedule:
+    # Run daily at 14:30 UTC and 15:30 UTC (6:30 AM and 7:30 AM Alaska Time depending on Daylight Savings)
+    # This guarantees we capture the state DPS daily 6:00 AM database refresh.
+    - cron: '30 14,15 * * *'
+  workflow_dispatch:
+  push:
+    paths:
+      - 'pipelines/fetch_missing_persons.py'
+
+concurrency:
+  group: pipeline-mmip
+  cancel-in-progress: false
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/alaskaintel/alaskaintel-json/alaskaintel-pipeline:latest
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout alaskaintel-data
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch Official DPS Missing Persons Database
+        run: |
+          python3 pipelines/fetch_missing_persons.py
+
+      - name: Commit + Push Data
+        id: git_sync
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git config --global user.name "AlaskaIntel-Bot"
+          git config --global user.email "bot@alaskaintel.com"
+          git add data/ public/ || true
+          
+          if ! git diff --staged --quiet; then
+            git commit -m "intel: missing persons sector sync $(date -u +'%Y-%m-%d %H:%M UTC')"
+            for i in 1 2 3 4 5; do
+              git pull --rebase origin master
+              if git push origin master; then break; fi
+              sleep 5
+            done
+            echo "HAS_CHANGES=true" >> $GITHUB_OUTPUT
+          else
+            echo "HAS_CHANGES=false" >> $GITHUB_OUTPUT
+          fi
+
