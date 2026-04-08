@@ -33,48 +33,48 @@ jobs:
           R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
           R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
           R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-        run: python3 pipelines/fetch_intel.py
+        run: python3 pipelines/fetch_intel.py || echo "::warning title=Scraper Failure::fetch_intel [super-slow] failed"
 
       # —— SAFETY ——
       - name: "2. Safety & Emergency"
         run: |
-          python3 pipelines/scrape_ast.py        || echo "⚠️ AST failed"
-          python3 pipelines/fetch_earthquakes.py || echo "⚠️ Earthquakes failed"
-          python3 pipelines/fetch_wildfires.py   || echo "⚠️ Wildfires failed"
-          python3 pipelines/fetch_weather.py     || echo "⚠️ Weather failed"
+          python3 pipelines/scrape_ast.py        || echo "::warning title=Scraper Failure::scrape_ast failed"
+          python3 pipelines/fetch_earthquakes.py || echo "::warning title=Scraper Failure::fetch_earthquakes failed"
+          python3 pipelines/fetch_wildfires.py   || echo "::warning title=Scraper Failure::fetch_wildfires failed"
+          python3 pipelines/fetch_weather.py     || echo "::warning title=Scraper Failure::fetch_weather failed"
 
       # —— GOVERNMENT ——
       - name: "3. Government & Regulatory"
         run: |
-          python3 pipelines/fetch_legislature.py || echo "⚠️ Legislature failed"
-          python3 pipelines/fetch_muni.py        || echo "⚠️ Muni failed"
-          python3 pipelines/fetch_dec.py         || echo "⚠️ DEC failed"
-          python3 pipelines/fetch_usace.py       || echo "⚠️ USACE failed"
+          python3 pipelines/fetch_legislature.py || echo "::warning title=Scraper Failure::fetch_legislature failed"
+          python3 pipelines/fetch_muni.py        || echo "::warning title=Scraper Failure::fetch_muni failed"
+          python3 pipelines/fetch_dec.py         || echo "::warning title=Scraper Failure::fetch_dec failed"
+          python3 pipelines/fetch_usace.py       || echo "::warning title=Scraper Failure::fetch_usace failed"
 
       # —— NATURAL RESOURCES ——
       - name: "4. Natural Resources"
         run: |
-          python3 pipelines/fetch_fisheries.py  || echo "⚠️ Fisheries failed"
-          python3 pipelines/fetch_noaa.py       || echo "⚠️ NOAA failed"
-          python3 pipelines/fetch_wildlife.py   || echo "⚠️ Wildlife failed"
+          python3 pipelines/fetch_fisheries.py  || echo "::warning title=Scraper Failure::fetch_fisheries failed"
+          python3 pipelines/fetch_noaa.py       || echo "::warning title=Scraper Failure::fetch_noaa failed"
+          python3 pipelines/fetch_wildlife.py   || echo "::warning title=Scraper Failure::fetch_wildlife failed"
 
       # —— TRANSPORT & EDUCATION ——
       - name: "5. Transport & Education"
         env:
           ALASKA_511_API_KEY: ${{ secrets.ALASKA_511_API_KEY }}
         run: |
-          python3 pipelines/fetch_511ak.py        || echo "⚠️ 511 failed"
-          python3 pipelines/fetch_aviation.py     || echo "⚠️ Aviation failed"
-          python3 pipelines/fetch_ua_system.py    || echo "⚠️ UA System failed"
-          python3 pipelines/scrape_ua_grants.py   || echo "⚠️ UA Grants failed"
-          python3 pipelines/fetch_asd.py          || echo "⚠️ ASD failed"
-          python3 pipelines/fetch_k12_districts.py || echo "⚠️ K12 Districts failed"
+          python3 pipelines/fetch_511ak.py        || echo "::warning title=Scraper Failure::fetch_511ak failed"
+          python3 pipelines/fetch_aviation.py     || echo "::warning title=Scraper Failure::fetch_aviation failed"
+          python3 pipelines/fetch_ua_system.py    || echo "::warning title=Scraper Failure::fetch_ua_system failed"
+          python3 pipelines/scrape_ua_grants.py   || echo "::warning title=Scraper Failure::scrape_ua_grants failed"
+          python3 pipelines/fetch_asd.py          || echo "::warning title=Scraper Failure::fetch_asd failed"
+          python3 pipelines/fetch_k12_districts.py || echo "::warning title=Scraper Failure::fetch_k12_districts failed"
 
       # —— FIRE & COMMUNITY ——
       - name: "6. Fire & Community"
         run: |
-          python3 pipelines/scrape_afs_fires.py  || echo "⚠️ AFS Fires failed"
-          python3 pipelines/scrape_venues.py     || echo "⚠️ Venues failed"
+          python3 pipelines/scrape_afs_fires.py  || echo "::warning title=Scraper Failure::scrape_afs_fires failed"
+          python3 pipelines/scrape_venues.py     || echo "::warning title=Scraper Failure::scrape_venues failed"
 
       - name: Commit + Push
         id: git_sync
@@ -86,7 +86,7 @@ jobs:
           if ! git diff --staged --quiet; then
             git commit -m "intel: [super-slow] full harvest $(date -u +'%Y-%m-%d %H:%M UTC')"
             PUSHED=false
-            for i in 1 2 3 4 5 6 7 8 9 10; do
+            for i in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15; do
               if git pull --rebase origin master; then
                 git push origin master && PUSHED=true && break
               else
@@ -100,10 +100,10 @@ jobs:
                 fi
                 git rebase --abort 2>/dev/null || true
               fi
-              sleep $((RANDOM % 10 + 5))
+              sleep $((RANDOM % 20 + 5))
             done
             if [ "$PUSHED" = "false" ]; then
-              echo "::warning::Push failed after 10 retries — data committed locally but not pushed"
+              echo "::warning title=Push Failure::Push failed after 15 retries — data committed locally but not pushed"
             fi
             echo "HAS_CHANGES=true" >> $GITHUB_OUTPUT
           else
