@@ -5,7 +5,7 @@ on:
     types: [cloudflare-super-slow-trigger]
   workflow_dispatch:
   schedule:
-    - cron: "0 */6 * * *"   # Safety net: every 6h UTC if CF cron fails
+    - cron: "33 */6 * * *"   # Every 6h at :33 — avoids :00 collision
 
 concurrency:
   group: pipeline-super-slow
@@ -85,13 +85,16 @@ jobs:
           git add data/ public/ || true
           if ! git diff --staged --quiet; then
             git commit -m "intel: [super-slow] full harvest $(date -u +'%Y-%m-%d %H:%M UTC')"
-            for i in 1 2 3 4 5; do
-              git pull --rebase origin master
-              if git push origin master; then break; fi
-              sleep 5
+            PUSHED=false
+            for i in 1 2 3 4 5 6 7 8 9 10; do
+              git pull --rebase origin master && git push origin master && PUSHED=true && break
+              git rebase --abort 2>/dev/null || true
+              sleep $((RANDOM % 10 + 5))
             done
+            if [ "$PUSHED" = "false" ]; then
+              echo "::warning::Push failed after 10 retries — data committed locally but not pushed"
+            fi
             echo "HAS_CHANGES=true" >> $GITHUB_OUTPUT
           else
             echo "HAS_CHANGES=false" >> $GITHUB_OUTPUT
           fi
-
