@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     container:
-      image: ghcr.io/kb907alaska/alaskaintel-data/alaskaintel-pipeline:latest
+      image: ghcr.io/alaskaintel/alaskaintel-json/alaskaintel-pipeline:latest
       credentials:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
@@ -32,7 +32,7 @@ jobs:
           R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
           R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
           R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-        run: python3 scripts/fetch_intel.py --priority=high --category=News,Radio,Politics,Maritime
+        run: python3 pipelines/fetch_intel.py --priority=high --category=News,Radio,Politics,Maritime
 
       - name: Commit + Push
         id: git_sync
@@ -44,8 +44,8 @@ jobs:
           if ! git diff --staged --quiet; then
             git commit -m "intel: [fast] RSS sync $(date -u +'%H:%M UTC')"
             for i in 1 2 3 4 5; do
-              git pull --rebase origin main
-              if git push origin main; then break; fi
+              git pull --rebase origin master
+              if git push origin master; then break; fi
               sleep 5
             done
             echo "HAS_CHANGES=true" >> $GITHUB_OUTPUT
@@ -53,16 +53,3 @@ jobs:
             echo "HAS_CHANGES=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Sync to R2
-        if: steps.git_sync.outputs.HAS_CHANGES == 'true'
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
-        run: |
-          R2_EP="https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com"
-          aws s3 sync data/ s3://alaskaintel-data/ --endpoint-url "$R2_EP" --exclude "*" --include "*.json" --content-type "application/json" --cache-control "no-cache, max-age=0"
-          if [ -d "public" ]; then
-            aws s3 sync public/ s3://alaskaintel-data/ --endpoint-url "$R2_EP" --exclude "*" --include "*.json" --content-type "application/json" --cache-control "no-cache, max-age=0"
-            aws s3 sync public/ s3://alaskaintel-data/ --endpoint-url "$R2_EP" --exclude "*" --include "*.xml"  --content-type "application/xml"  --cache-control "no-cache, max-age=0"
-          fi

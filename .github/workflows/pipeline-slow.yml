@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     container:
-      image: ghcr.io/kb907alaska/alaskaintel-data/alaskaintel-pipeline:latest
+      image: ghcr.io/alaskaintel/alaskaintel-json/alaskaintel-pipeline:latest
       credentials:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
@@ -32,26 +32,26 @@ jobs:
           R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
           R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
           R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-        run: python3 scripts/fetch_intel.py --priority=low --category=Government,Economy,Business,Industry,Labor,Legal,Infrastructure
+        run: python3 pipelines/fetch_intel.py --priority=low --category=Government,Economy,Business,Industry,Labor,Legal,Infrastructure
 
       - name: Safety Scrapers
         run: |
-          python3 scripts/scrape_ast.py        || echo "⚠️ AST failed"
-          python3 scripts/fetch_earthquakes.py || echo "⚠️ Earthquakes failed"
-          python3 scripts/fetch_wildfires.py   || echo "⚠️ Wildfires failed"
-          python3 scripts/fetch_weather.py     || echo "⚠️ Weather failed"
+          python3 pipelines/scrape_ast.py        || echo "⚠️ AST failed"
+          python3 pipelines/fetch_earthquakes.py || echo "⚠️ Earthquakes failed"
+          python3 pipelines/fetch_wildfires.py   || echo "⚠️ Wildfires failed"
+          python3 pipelines/fetch_weather.py     || echo "⚠️ Weather failed"
 
       - name: Government Scrapers
         run: |
-          python3 scripts/fetch_legislature.py || echo "⚠️ Legislature failed"
-          python3 scripts/fetch_muni.py        || echo "⚠️ Muni failed"
-          python3 scripts/fetch_dec.py         || echo "⚠️ DEC failed"
-          python3 scripts/fetch_usace.py       || echo "⚠️ USACE failed"
-          python3 scripts/fetch_public_notices.py || echo "⚠️ State OPN failed"
+          python3 pipelines/fetch_legislature.py || echo "⚠️ Legislature failed"
+          python3 pipelines/fetch_muni.py        || echo "⚠️ Muni failed"
+          python3 pipelines/fetch_dec.py         || echo "⚠️ DEC failed"
+          python3 pipelines/fetch_usace.py       || echo "⚠️ USACE failed"
+          python3 pipelines/fetch_public_notices.py || echo "⚠️ State OPN failed"
 
       - name: Health Scrapers
         run: |
-          python3 scripts/fetch_health_data.py || echo "⚠️ DHSS Health failed"
+          python3 pipelines/fetch_health_data.py || echo "⚠️ DHSS Health failed"
 
       - name: Commit + Push
         id: git_sync
@@ -63,8 +63,8 @@ jobs:
           if ! git diff --staged --quiet; then
             git commit -m "intel: [slow] core + govt sync $(date -u +'%H:%M UTC')"
             for i in 1 2 3 4 5; do
-              git pull --rebase origin main
-              if git push origin main; then break; fi
+              git pull --rebase origin master
+              if git push origin master; then break; fi
               sleep 5
             done
             echo "HAS_CHANGES=true" >> $GITHUB_OUTPUT
@@ -72,16 +72,3 @@ jobs:
             echo "HAS_CHANGES=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Sync to R2
-        if: steps.git_sync.outputs.HAS_CHANGES == 'true'
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
-        run: |
-          R2_EP="https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com"
-          aws s3 sync data/ s3://alaskaintel-data/ --endpoint-url "$R2_EP" --exclude "*" --include "*.json" --content-type "application/json" --cache-control "no-cache, max-age=0"
-          if [ -d "public" ]; then
-            aws s3 sync public/ s3://alaskaintel-data/ --endpoint-url "$R2_EP" --exclude "*" --include "*.json" --content-type "application/json" --cache-control "no-cache, max-age=0"
-            aws s3 sync public/ s3://alaskaintel-data/ --endpoint-url "$R2_EP" --exclude "*" --include "*.xml"  --content-type "application/xml"  --cache-control "no-cache, max-age=0"
-          fi
