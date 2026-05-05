@@ -1,10 +1,10 @@
 {
-  "timestamp": "2026-05-05T11:52:55.737836",
+  "timestamp": "2026-05-05T14:24:11.415107",
   "summary": {
     "total": 265,
     "healthy": 190,
-    "warnings": 27,
-    "errors": 48,
+    "warnings": 26,
+    "errors": 49,
     "health_score": 71.7,
     "approved": 0,
     "probation": 265,
@@ -12,43 +12,23 @@
   },
   "feeds": [
     {
-      "name": "Alaska Public Media",
-      "url": "https://alaskapublic.org/news.rss",
-      "category": "News",
-      "status": "ok",
-      "items": 12,
-      "latency_ms": 146,
-      "last_updated": "Tue, 05 May 2026 01:50:08 GMT",
-      "probation_status": "probation"
-    },
-    {
       "name": "Mat-Su Frontiersman",
       "url": "https://www.frontiersman.com/search/?f=rss&t=article&l=50&s=start_time&sd=desc",
       "category": "Regional",
       "status": "error",
       "error": "<unknown>:2:0: syntax error",
       "items": 0,
-      "latency_ms": 239,
+      "latency_ms": 206,
       "probation_status": "probation"
     },
     {
-      "name": "Fairbanks News-Miner",
-      "url": "https://www.newsminer.com/search/?f=rss&t=article&l=50&s=start_time&sd=desc",
-      "category": "Regional",
-      "status": "error",
-      "error": "<unknown>:2:0: syntax error",
-      "items": 0,
-      "latency_ms": 245,
-      "probation_status": "probation"
-    },
-    {
-      "name": "Juneau Empire",
-      "url": "https://juneauempire.com/feed",
+      "name": "Kodiak Daily Mirror",
+      "url": "https://www.kodiakdailymirror.com/search/?f=rss&t=article&l=50&s=start_time&sd=desc",
       "category": "Regional",
       "status": "ok",
-      "items": 20,
-      "latency_ms": 314,
-      "last_updated": "Mon, 04 May 2026 22:10:00 +0000",
+      "items": 50,
+      "latency_ms": 244,
+      "last_updated": "Unknown",
       "probation_status": "probation"
     },
     {
@@ -57,8 +37,48 @@
       "category": "Politics",
       "status": "ok",
       "items": 10,
-      "latency_ms": 335,
+      "latency_ms": 301,
       "last_updated": "Mon, 04 May 2026 20:24:43 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Fairbanks News-Miner",
+      "url": "https://www.newsminer.com/search/?f=rss&t=article&l=50&s=start_time&sd=desc",
+      "category": "Regional",
+      "status": "ok",
+      "items": 50,
+      "latency_ms": 318,
+      "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Alaska Public Media",
+      "url": "https://alaskapublic.org/news.rss",
+      "category": "News",
+      "status": "ok",
+      "items": 12,
+      "latency_ms": 337,
+      "last_updated": "Tue, 05 May 2026 01:50:08 GMT",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Alaska Native News",
+      "url": "https://alaska-native-news.com/feed",
+      "category": "Native",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 477,
+      "last_updated": "Mon, 04 May 2026 19:59:16 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Alaska Landmine",
+      "url": "https://alaskalandmine.com/feed",
+      "category": "Politics",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 479,
+      "last_updated": "Tue, 05 May 2026 13:34:55 +0000",
       "probation_status": "probation"
     },
     {
@@ -68,37 +88,17 @@
       "status": "error",
       "error": "<unknown>:14:4: mismatched tag",
       "items": 0,
-      "latency_ms": 333,
+      "latency_ms": 537,
       "probation_status": "probation"
     },
     {
-      "name": "Homer News",
-      "url": "https://homernews.com/feed",
-      "category": "Regional",
-      "status": "ok",
-      "items": 20,
-      "latency_ms": 364,
-      "last_updated": "Fri, 01 May 2026 11:30:23 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Kodiak Daily Mirror",
-      "url": "https://www.kodiakdailymirror.com/search/?f=rss&t=article&l=50&s=start_time&sd=desc",
-      "category": "Regional",
-      "status": "ok",
-      "items": 50,
-      "latency_ms": 375,
-      "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Delta Wind",
-      "url": "https://www.adn.com/arc/outboundfeeds/rss/category/delta-wind/",
-      "category": "Regional",
-      "status": "warning",
-      "error": "No entries found in feed",
+      "name": "Resource Development Council",
+      "url": "https://akrdc.org/rss",
+      "category": "Industry",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='akrdc.org', port=443): Max retries exceeded with url: /rss (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2caed916f0>: Failed to establish a new connection: [Errno -5] No address associated with hostname'))",
       "items": 0,
-      "latency_ms": 429,
+      "latency_ms": 75,
       "probation_status": "probation"
     },
     {
@@ -107,98 +107,8 @@
       "category": "Politics",
       "status": "ok",
       "items": 20,
-      "latency_ms": 471,
+      "latency_ms": 562,
       "last_updated": "Mon, 04 May 2026 23:07:10 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Resource Development Council",
-      "url": "https://akrdc.org/rss",
-      "category": "Industry",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='akrdc.org', port=443): Max retries exceeded with url: /rss (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f86937bdc60>: Failed to establish a new connection: [Errno -5] No address associated with hostname'))",
-      "items": 0,
-      "latency_ms": 108,
-      "probation_status": "probation"
-    },
-    {
-      "name": "Alaska Landmine",
-      "url": "https://alaskalandmine.com/feed",
-      "category": "Politics",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 516,
-      "last_updated": "Tue, 05 May 2026 11:11:46 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Alaska Native News",
-      "url": "https://alaska-native-news.com/feed",
-      "category": "Native",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 532,
-      "last_updated": "Mon, 04 May 2026 15:51:16 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Anchorage Daily News",
-      "url": "https://www.adn.com/arc/outboundfeeds/rss/",
-      "category": "News",
-      "status": "ok",
-      "items": 25,
-      "latency_ms": 574,
-      "last_updated": "Tue, 05 May 2026 11:50:38 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Arctic Sounder",
-      "url": "https://www.adn.com/arc/outboundfeeds/rss/category/arctic-sounder/",
-      "category": "Regional",
-      "status": "warning",
-      "error": "No entries found in feed",
-      "items": 0,
-      "latency_ms": 442,
-      "probation_status": "probation"
-    },
-    {
-      "name": "Nome Nugget",
-      "url": "https://nomenugget.net/rss.xml",
-      "category": "Regional",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 615,
-      "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Alaska Economic Report",
-      "url": "https://alaskapublic.org/news.rss",
-      "category": "Economy",
-      "status": "ok",
-      "items": 12,
-      "latency_ms": 154,
-      "last_updated": "Tue, 05 May 2026 01:50:08 GMT",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Alaska Journal of Commerce",
-      "url": "https://www.adn.com/arc/outboundfeeds/rss/category/alaska-journal/?outputType=xml",
-      "category": "Business",
-      "status": "warning",
-      "error": "No entries found in feed",
-      "items": 0,
-      "latency_ms": 283,
-      "probation_status": "probation"
-    },
-    {
-      "name": "NOAA Fisheries Alaska",
-      "url": "https://proxy.alaskaintel.com/rss/noaa-fisheries",
-      "category": "Fisheries",
-      "status": "error",
-      "error": "<unknown>:2:1326: not well-formed (invalid token)",
-      "items": 0,
-      "latency_ms": 323,
       "probation_status": "probation"
     },
     {
@@ -208,7 +118,7 @@
       "status": "error",
       "error": "<unknown>:2:1326: not well-formed (invalid token)",
       "items": 0,
-      "latency_ms": 432,
+      "latency_ms": 393,
       "probation_status": "probation"
     },
     {
@@ -218,17 +128,77 @@
       "status": "error",
       "error": "<unknown>:2:1326: not well-formed (invalid token)",
       "items": 0,
-      "latency_ms": 444,
+      "latency_ms": 360,
       "probation_status": "probation"
     },
     {
-      "name": "Petersburg Pilot",
-      "url": "https://petersburgpilot.com/rss",
+      "name": "NOAA Fisheries Alaska",
+      "url": "https://proxy.alaskaintel.com/rss/noaa-fisheries",
+      "category": "Fisheries",
+      "status": "error",
+      "error": "<unknown>:2:1326: not well-formed (invalid token)",
+      "items": 0,
+      "latency_ms": 346,
+      "probation_status": "probation"
+    },
+    {
+      "name": "Homer News",
+      "url": "https://homernews.com/feed",
       "category": "Regional",
       "status": "ok",
-      "items": 19,
-      "latency_ms": 754,
+      "items": 20,
+      "latency_ms": 751,
+      "last_updated": "Fri, 01 May 2026 11:30:23 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Nome Nugget",
+      "url": "https://nomenugget.net/rss.xml",
+      "category": "Regional",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 778,
       "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Alaska Economic Report",
+      "url": "https://alaskapublic.org/news.rss",
+      "category": "Economy",
+      "status": "ok",
+      "items": 12,
+      "latency_ms": 241,
+      "last_updated": "Tue, 05 May 2026 01:50:08 GMT",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Juneau Empire",
+      "url": "https://juneauempire.com/feed",
+      "category": "Regional",
+      "status": "ok",
+      "items": 20,
+      "latency_ms": 876,
+      "last_updated": "Tue, 05 May 2026 12:30:00 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Delta Wind",
+      "url": "https://www.adn.com/arc/outboundfeeds/rss/category/delta-wind/",
+      "category": "Regional",
+      "status": "warning",
+      "error": "No entries found in feed",
+      "items": 0,
+      "latency_ms": 1028,
+      "probation_status": "probation"
+    },
+    {
+      "name": "Chilkat Valley News",
+      "url": "https://chilkatvalleynews.com/feed",
+      "category": "Regional",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 1034,
+      "last_updated": "Tue, 05 May 2026 08:41:23 +0000",
       "probation_status": "probation"
     },
     {
@@ -238,16 +208,16 @@
       "status": "error",
       "error": "<unknown>:2:1326: not well-formed (invalid token)",
       "items": 0,
-      "latency_ms": 331,
+      "latency_ms": 443,
       "probation_status": "probation"
     },
     {
-      "name": "Petersburg City",
-      "url": "https://www.petersburgak.gov/rss.xml",
-      "category": "Government",
+      "name": "Petersburg Pilot",
+      "url": "https://petersburgpilot.com/rss",
+      "category": "Regional",
       "status": "ok",
-      "items": 3,
-      "latency_ms": 231,
+      "items": 19,
+      "latency_ms": 1112,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
@@ -258,27 +228,7 @@
       "status": "error",
       "error": "<unknown>:2:1326: not well-formed (invalid token)",
       "items": 0,
-      "latency_ms": 407,
-      "probation_status": "probation"
-    },
-    {
-      "name": "Chilkat Valley News",
-      "url": "https://chilkatvalleynews.com/feed",
-      "category": "Regional",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 1014,
-      "last_updated": "Tue, 05 May 2026 08:41:23 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Alaska Governor's Office",
-      "url": "https://gov.alaska.gov/feed",
-      "category": "Government",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 458,
-      "last_updated": "Mon, 04 May 2026 22:34:14 +0000",
+      "latency_ms": 411,
       "probation_status": "probation"
     },
     {
@@ -287,7 +237,7 @@
       "category": "Safety",
       "status": "ok",
       "items": 20,
-      "latency_ms": 510,
+      "latency_ms": 542,
       "last_updated": "Thu, 30 Apr 2026 04:02:57 +0000",
       "probation_status": "probation"
     },
@@ -297,7 +247,7 @@
       "category": "News",
       "status": "ok",
       "items": 20,
-      "latency_ms": 1243,
+      "latency_ms": 1352,
       "last_updated": "Tue, 05 May 2026 01:26:03 +0000",
       "probation_status": "probation"
     },
@@ -307,28 +257,18 @@
       "category": "News",
       "status": "ok",
       "items": 100,
-      "latency_ms": 1283,
-      "last_updated": "Tue, 05 May 2026 00:37:05 +0000",
+      "latency_ms": 1354,
+      "last_updated": "Tue, 05 May 2026 13:39:08 +0000",
       "probation_status": "probation"
     },
     {
-      "name": "Wrangell City",
-      "url": "https://www.wrangell.com/rss.xml",
+      "name": "Petersburg City",
+      "url": "https://www.petersburgak.gov/rss.xml",
       "category": "Government",
       "status": "ok",
-      "items": 2,
-      "latency_ms": 600,
+      "items": 3,
+      "latency_ms": 249,
       "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Dillingham City",
-      "url": "https://www.dillinghamak.us/rss.xml",
-      "category": "Government",
-      "status": "warning",
-      "error": "No entries found in feed",
-      "items": 0,
-      "latency_ms": 533,
       "probation_status": "probation"
     },
     {
@@ -337,8 +277,18 @@
       "category": "Regional",
       "status": "ok",
       "items": 10,
-      "latency_ms": 1305,
+      "latency_ms": 1379,
       "last_updated": "Mon, 04 May 2026 21:20:28 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Alaska Journal of Commerce",
+      "url": "https://www.adn.com/arc/outboundfeeds/rss/category/alaska-journal/?outputType=xml",
+      "category": "Business",
+      "status": "warning",
+      "error": "No entries found in feed",
+      "items": 0,
+      "latency_ms": 908,
       "probation_status": "probation"
     },
     {
@@ -348,17 +298,27 @@
       "status": "error",
       "error": "<unknown>:7:929: mismatched tag",
       "items": 0,
-      "latency_ms": 937,
+      "latency_ms": 832,
       "probation_status": "probation"
     },
     {
-      "name": "Cordova City",
-      "url": "https://www.cityofcordova.net/feed",
+      "name": "Dillingham City",
+      "url": "https://www.dillinghamak.us/rss.xml",
       "category": "Government",
+      "status": "warning",
+      "error": "No entries found in feed",
+      "items": 0,
+      "latency_ms": 306,
+      "probation_status": "probation"
+    },
+    {
+      "name": "Alaska Business Magazine",
+      "url": "https://akbizmag.com/feed",
+      "category": "Business",
       "status": "ok",
       "items": 10,
-      "latency_ms": 577,
-      "last_updated": "Thu, 16 Apr 2026 00:52:01 +0000",
+      "latency_ms": 1258,
+      "last_updated": "Mon, 04 May 2026 20:07:31 +0000",
       "probation_status": "probation"
     },
     {
@@ -366,49 +326,9 @@
       "url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.atom",
       "category": "Emergency",
       "status": "ok",
-      "items": 13,
-      "latency_ms": 398,
-      "last_updated": "2026-05-05T11:52:25Z",
-      "probation_status": "probation"
-    },
-    {
-      "name": "NWS Fairbanks",
-      "url": "https://weather.gov/rss_page.php?site_name=nws",
-      "category": "Weather",
-      "status": "ok",
-      "items": 1,
-      "latency_ms": 434,
-      "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "AK Dept of Natural Resources",
-      "url": "https://dnr.alaska.gov/rss.xml",
-      "category": "Environment",
-      "status": "ok",
-      "items": 553,
-      "latency_ms": 947,
-      "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Anchorage Municipality",
-      "url": "http://www.muni.org/PublicNotice/_layouts/15/listfeed.aspx?List={416baa47-c958-4cbb-bd0b-7c29afddb8c3}",
-      "category": "Government",
-      "status": "ok",
-      "items": 25,
-      "latency_ms": 1088,
-      "last_updated": "Tue, 05 May 2026 11:50:21 GMT",
-      "probation_status": "probation"
-    },
-    {
-      "name": "NWS Anchorage",
-      "url": "https://weather.gov/rss_page.php?site_name=nws",
-      "category": "Weather",
-      "status": "ok",
-      "items": 1,
-      "latency_ms": 641,
-      "last_updated": "Unknown",
+      "items": 5,
+      "latency_ms": 281,
+      "last_updated": "2026-05-05T14:23:24Z",
       "probation_status": "probation"
     },
     {
@@ -417,7 +337,47 @@
       "category": "Government",
       "status": "ok",
       "items": 50,
-      "latency_ms": 1165,
+      "latency_ms": 1023,
+      "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Juneau CBJ",
+      "url": "https://juneau.org/feed",
+      "category": "Government",
+      "status": "ok",
+      "items": 5,
+      "latency_ms": 907,
+      "last_updated": "Tue, 14 Apr 2026 22:49:32 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Anchorage Municipality",
+      "url": "http://www.muni.org/PublicNotice/_layouts/15/listfeed.aspx?List={416baa47-c958-4cbb-bd0b-7c29afddb8c3}",
+      "category": "Government",
+      "status": "ok",
+      "items": 25,
+      "latency_ms": 1069,
+      "last_updated": "Tue, 05 May 2026 14:21:35 GMT",
+      "probation_status": "probation"
+    },
+    {
+      "name": "NWS Anchorage",
+      "url": "https://weather.gov/rss_page.php?site_name=nws",
+      "category": "Weather",
+      "status": "ok",
+      "items": 1,
+      "latency_ms": 377,
+      "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "NWS Fairbanks",
+      "url": "https://weather.gov/rss_page.php?site_name=nws",
+      "category": "Weather",
+      "status": "ok",
+      "items": 1,
+      "latency_ms": 361,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
@@ -427,7 +387,7 @@
       "category": "Weather",
       "status": "ok",
       "items": 1,
-      "latency_ms": 595,
+      "latency_ms": 389,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
@@ -437,8 +397,18 @@
       "category": "News",
       "status": "ok",
       "items": 20,
-      "latency_ms": 1719,
+      "latency_ms": 1775,
       "last_updated": "Mon, 04 May 2026 07:03:33 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Wrangell City",
+      "url": "https://www.wrangell.com/rss.xml",
+      "category": "Government",
+      "status": "ok",
+      "items": 2,
+      "latency_ms": 726,
+      "last_updated": "Unknown",
       "probation_status": "probation"
     },
     {
@@ -447,8 +417,18 @@
       "category": "Recreation",
       "status": "ok",
       "items": 12,
-      "latency_ms": 438,
+      "latency_ms": 114,
       "last_updated": "Tue, 05 May 2026 01:50:08 GMT",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Alaska Governor's Office",
+      "url": "https://gov.alaska.gov/feed",
+      "category": "Government",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 799,
+      "last_updated": "Mon, 04 May 2026 22:34:14 +0000",
       "probation_status": "probation"
     },
     {
@@ -458,7 +438,7 @@
       "status": "error",
       "error": "<unknown>:2:1326: not well-formed (invalid token)",
       "items": 0,
-      "latency_ms": 498,
+      "latency_ms": 220,
       "probation_status": "probation"
     },
     {
@@ -468,37 +448,27 @@
       "status": "error",
       "error": "<unknown>:2:1326: not well-formed (invalid token)",
       "items": 0,
-      "latency_ms": 540,
+      "latency_ms": 175,
       "probation_status": "probation"
     },
     {
-      "name": "Alaska Business Magazine",
-      "url": "https://akbizmag.com/feed",
-      "category": "Business",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 1518,
-      "last_updated": "Mon, 04 May 2026 20:07:31 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Unalaska City",
-      "url": "https://www.ci.unalaska.ak.us/rss.xml",
+      "name": "North Slope Borough",
+      "url": "https://www.north-slope.org/news/feed",
       "category": "Government",
-      "status": "warning",
-      "error": "No entries found in feed",
-      "items": 0,
-      "latency_ms": 1025,
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 1140,
+      "last_updated": "Mon, 20 Apr 2026 06:16:30 +0000",
       "probation_status": "probation"
     },
     {
-      "name": "Alaska Federation of Natives",
-      "url": "https://nativefederation.org/feed",
-      "category": "Native",
+      "name": "Anchorage Daily News",
+      "url": "https://www.adn.com/arc/outboundfeeds/rss/",
+      "category": "News",
       "status": "ok",
-      "items": 10,
-      "latency_ms": 282,
-      "last_updated": "Mon, 04 May 2026 22:01:36 +0000",
+      "items": 25,
+      "latency_ms": 2144,
+      "last_updated": "Tue, 05 May 2026 14:23:39 +0000",
       "probation_status": "probation"
     },
     {
@@ -508,17 +478,37 @@
       "status": "error",
       "error": "<unknown>:2:1326: not well-formed (invalid token)",
       "items": 0,
-      "latency_ms": 339,
+      "latency_ms": 300,
       "probation_status": "probation"
     },
     {
-      "name": "Chugach Alaska Corp",
-      "url": "https://www.chugach.com/feed",
+      "name": "AK Dept of Natural Resources",
+      "url": "https://dnr.alaska.gov/rss.xml",
+      "category": "Environment",
+      "status": "ok",
+      "items": 553,
+      "latency_ms": 1138,
+      "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Alaska Federation of Natives",
+      "url": "https://nativefederation.org/feed",
       "category": "Native",
       "status": "ok",
-      "items": 12,
-      "latency_ms": 508,
-      "last_updated": "Fri, 24 Apr 2026 14:16:12 +0000",
+      "items": 10,
+      "latency_ms": 372,
+      "last_updated": "Mon, 04 May 2026 22:01:36 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Cordova City",
+      "url": "https://www.cityofcordova.net/feed",
+      "category": "Government",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 927,
+      "last_updated": "Thu, 16 Apr 2026 00:52:01 +0000",
       "probation_status": "probation"
     },
     {
@@ -527,8 +517,28 @@
       "category": "Emergency",
       "status": "ok",
       "items": 15,
-      "latency_ms": 945,
+      "latency_ms": 874,
       "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Unalaska City",
+      "url": "https://www.ci.unalaska.ak.us/rss.xml",
+      "category": "Government",
+      "status": "warning",
+      "error": "No entries found in feed",
+      "items": 0,
+      "latency_ms": 923,
+      "probation_status": "probation"
+    },
+    {
+      "name": "Chugach Alaska Corp",
+      "url": "https://www.chugach.com/feed",
+      "category": "Native",
+      "status": "ok",
+      "items": 12,
+      "latency_ms": 547,
+      "last_updated": "Fri, 24 Apr 2026 14:16:12 +0000",
       "probation_status": "probation"
     },
     {
@@ -538,16 +548,36 @@
       "status": "warning",
       "error": "No entries found in feed",
       "items": 0,
-      "latency_ms": 351,
+      "latency_ms": 281,
       "probation_status": "probation"
     },
     {
-      "name": "Petroleum News",
-      "url": "https://petroleumnews.com/rss",
-      "category": "Energy",
+      "name": "Arctic Sounder",
+      "url": "https://www.adn.com/arc/outboundfeeds/rss/category/arctic-sounder/",
+      "category": "Regional",
+      "status": "warning",
+      "error": "No entries found in feed",
+      "items": 0,
+      "latency_ms": 2394,
+      "probation_status": "probation"
+    },
+    {
+      "name": "Alaska Volcano Observatory",
+      "url": "https://avo.alaska.edu/rss.xml",
+      "category": "Emergency",
       "status": "ok",
-      "items": 14,
-      "latency_ms": 1751,
+      "items": 2,
+      "latency_ms": 1245,
+      "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "USDA Alaska Statistics",
+      "url": "https://www.nass.usda.gov/rss/reports.xml",
+      "category": "Agriculture",
+      "status": "ok",
+      "items": 1,
+      "latency_ms": 308,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
@@ -558,17 +588,7 @@
       "status": "warning",
       "error": "No entries found in feed",
       "items": 0,
-      "latency_ms": 457,
-      "probation_status": "probation"
-    },
-    {
-      "name": "Alaska Volcano Observatory",
-      "url": "https://avo.alaska.edu/rss.xml",
-      "category": "Emergency",
-      "status": "ok",
-      "items": 2,
-      "latency_ms": 1045,
-      "last_updated": "Unknown",
+      "latency_ms": 892,
       "probation_status": "probation"
     },
     {
@@ -577,38 +597,8 @@
       "category": "Safety",
       "status": "ok",
       "items": 15,
-      "latency_ms": 1215,
+      "latency_ms": 1520,
       "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Kenai Fly Fish",
-      "url": "https://kenaiflyfish.com/rss.xml",
-      "category": "Recreation",
-      "status": "ok",
-      "items": 50,
-      "latency_ms": 1127,
-      "last_updated": "Wed, 30 Apr 2025 02:24:33 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "USDA Alaska Statistics",
-      "url": "https://www.nass.usda.gov/rss/reports.xml",
-      "category": "Agriculture",
-      "status": "ok",
-      "items": 1,
-      "latency_ms": 397,
-      "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Doyon Limited",
-      "url": "https://doyon.com/feed",
-      "category": "Native",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 1053,
-      "last_updated": "Tue, 05 May 2026 00:47:03 +0000",
       "probation_status": "probation"
     },
     {
@@ -617,37 +607,7 @@
       "category": "Native",
       "status": "ok",
       "items": 15,
-      "latency_ms": 1067,
-      "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Northern Miner Alaska",
-      "url": "https://northernminer.com/tag/alaska/feed",
-      "category": "Mining",
-      "status": "ok",
-      "items": 7,
-      "latency_ms": 456,
-      "last_updated": "Wed, 22 Apr 2026 21:33:30 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "USFS Chugach",
-      "url": "https://fs.usda.gov/news/chugach/news-releases/feed",
-      "category": "Forest",
-      "status": "ok",
-      "items": 7,
-      "latency_ms": 822,
-      "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "USFS Tongass",
-      "url": "https://fs.usda.gov/news/tongass/news-releases/feed",
-      "category": "Forest",
-      "status": "ok",
-      "items": 12,
-      "latency_ms": 817,
+      "latency_ms": 1324,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
@@ -657,17 +617,7 @@
       "category": "Parks",
       "status": "ok",
       "items": 15,
-      "latency_ms": 875,
-      "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "NPS Denali",
-      "url": "https://nps.gov/dena/learn/news/newsreleases.xml",
-      "category": "Parks",
-      "status": "ok",
-      "items": 15,
-      "latency_ms": 1115,
+      "latency_ms": 945,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
@@ -677,7 +627,47 @@
       "category": "Parks",
       "status": "ok",
       "items": 15,
-      "latency_ms": 1026,
+      "latency_ms": 1062,
+      "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Petroleum News",
+      "url": "https://petroleumnews.com/rss",
+      "category": "Energy",
+      "status": "ok",
+      "items": 14,
+      "latency_ms": 2786,
+      "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Kenai Fly Fish",
+      "url": "https://kenaiflyfish.com/rss.xml",
+      "category": "Recreation",
+      "status": "ok",
+      "items": 50,
+      "latency_ms": 1725,
+      "last_updated": "Wed, 30 Apr 2025 02:24:33 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "NPS Denali",
+      "url": "https://nps.gov/dena/learn/news/newsreleases.xml",
+      "category": "Parks",
+      "status": "ok",
+      "items": 15,
+      "latency_ms": 1335,
+      "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "USFS Chugach",
+      "url": "https://fs.usda.gov/news/chugach/news-releases/feed",
+      "category": "Forest",
+      "status": "ok",
+      "items": 7,
+      "latency_ms": 1311,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
@@ -688,7 +678,17 @@
       "status": "warning",
       "error": "No entries found in feed",
       "items": 0,
-      "latency_ms": 1545,
+      "latency_ms": 1863,
+      "probation_status": "probation"
+    },
+    {
+      "name": "USFS Tongass",
+      "url": "https://fs.usda.gov/news/tongass/news-releases/feed",
+      "category": "Forest",
+      "status": "ok",
+      "items": 12,
+      "latency_ms": 1278,
+      "last_updated": "Unknown",
       "probation_status": "probation"
     },
     {
@@ -697,78 +697,8 @@
       "category": "Fisheries",
       "status": "ok",
       "items": 15,
-      "latency_ms": 1481,
+      "latency_ms": 1756,
       "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Oil & Gas IQ",
-      "url": "https://oilandgasiq.com/rss/news",
-      "category": "Energy",
-      "status": "ok",
-      "items": 12,
-      "latency_ms": 738,
-      "last_updated": "Tue, 05 May 2026 11:52:27 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "BLM Alaska Frontiers",
-      "url": "https://blm.gov/feedback",
-      "category": "Government",
-      "status": "ok",
-      "items": 15,
-      "latency_ms": 1450,
-      "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Mining.com Alaska",
-      "url": "https://mining.com/feed",
-      "category": "Mining",
-      "status": "ok",
-      "items": 36,
-      "latency_ms": 1193,
-      "last_updated": "Mon, 04 May 2026 23:00:11 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Seward Journal",
-      "url": "https://sewardjournal.com/feed",
-      "category": "Regional",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='sewardjournal.com', port=443): Max retries exceeded with url: /feed (Caused by SSLError(SSLError(1, '[SSL: TLSV1_UNRECOGNIZED_NAME] tlsv1 unrecognized name (_ssl.c:1007)')))",
-      "items": 0,
-      "latency_ms": 258,
-      "probation_status": "probation"
-    },
-    {
-      "name": "RCA Issued Orders",
-      "url": "https://rca.alaska.gov/RCAWeb/RSS/IssuedOrders",
-      "category": "Energy",
-      "status": "ok",
-      "items": 15,
-      "latency_ms": 1229,
-      "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Mongabay Alaska",
-      "url": "https://news.mongabay.com/feed",
-      "category": "Environment",
-      "status": "ok",
-      "items": 32,
-      "latency_ms": 520,
-      "last_updated": "Tue, 05 May 2026 11:04:39 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Alaska Power Association",
-      "url": "https://www.alaskapower.org/feed/",
-      "category": "Energy",
-      "status": "warning",
-      "error": "No entries found in feed",
-      "items": 0,
-      "latency_ms": 1087,
       "probation_status": "probation"
     },
     {
@@ -777,7 +707,7 @@
       "category": "Science",
       "status": "ok",
       "items": 5,
-      "latency_ms": 478,
+      "latency_ms": 192,
       "last_updated": "Thu, 16 Apr 2026 23:39:31 +0000",
       "probation_status": "probation"
     },
@@ -787,78 +717,68 @@
       "category": "Native",
       "status": "ok",
       "items": 10,
-      "latency_ms": 1957,
+      "latency_ms": 2062,
       "last_updated": "Wed, 29 Apr 2026 19:20:39 +0000",
       "probation_status": "probation"
     },
     {
-      "name": "Kodiak Mirror",
-      "url": "http://www.kodiakdailymirror.com/search/?f=rss&t=article&c=news&l=50&s=start_time&sd=desc",
-      "category": "Regional",
-      "status": "error",
-      "error": "<unknown>:2:0: syntax error",
-      "items": 0,
-      "latency_ms": 511,
-      "probation_status": "probation"
-    },
-    {
-      "name": "Federal Court Alaska",
-      "url": "https://akd.uscourts.gov/rss-opinions.xml",
-      "category": "Legal",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='akd.uscourts.gov', port=443): Max retries exceeded with url: /rss-opinions.xml (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f8680729450>: Failed to establish a new connection: [Errno -5] No address associated with hostname'))",
-      "items": 0,
-      "latency_ms": 46,
-      "probation_status": "probation"
-    },
-    {
-      "name": "The Arctic Institute",
-      "url": "https://thearcticinstitute.org/feed",
-      "category": "Research",
+      "name": "RCA Issued Orders",
+      "url": "https://rca.alaska.gov/RCAWeb/RSS/IssuedOrders",
+      "category": "Energy",
       "status": "ok",
-      "items": 20,
-      "latency_ms": 622,
-      "last_updated": "Tue, 05 May 2026 07:56:15 +0000",
+      "items": 15,
+      "latency_ms": 1385,
+      "last_updated": "Unknown",
       "probation_status": "probation"
     },
     {
-      "name": "KYUK Bethel",
-      "url": "https://kyuk.org/feed",
-      "category": "Radio",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='kyuk.org', port=443): Max retries exceeded with url: /feed (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f8680b157b0>: Failed to establish a new connection: [Errno 111] Connection refused'))",
-      "items": 0,
-      "latency_ms": 148,
+      "name": "Mining.com Alaska",
+      "url": "https://mining.com/feed",
+      "category": "Mining",
+      "status": "ok",
+      "items": 36,
+      "latency_ms": 1335,
+      "last_updated": "Tue, 05 May 2026 14:04:43 +0000",
       "probation_status": "probation"
     },
     {
-      "name": "Alaska Homeless Info",
-      "url": "https://alaskahomeless.org/feed",
-      "category": "Social",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='alaskahomeless.org', port=443): Max retries exceeded with url: /feed (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f86903201c0>: Failed to establish a new connection: [Errno -2] Name or service not known'))",
-      "items": 0,
-      "latency_ms": 88,
-      "probation_status": "probation"
-    },
-    {
-      "name": "KHNS Haines/Skagway",
-      "url": "https://khns.org/feed",
-      "category": "Radio",
-      "status": "error",
-      "error": "<unknown>:2:1326: not well-formed (invalid token)",
-      "items": 0,
-      "latency_ms": 240,
-      "probation_status": "probation"
-    },
-    {
-      "name": "Wrangell Sentinel",
-      "url": "https://wrangellsentinel.com/browse.rss",
+      "name": "Seward Journal",
+      "url": "https://sewardjournal.com/feed",
       "category": "Regional",
       "status": "error",
-      "error": "<unknown>:14:4: mismatched tag",
+      "error": "HTTPSConnectionPool(host='sewardjournal.com', port=443): Max retries exceeded with url: /feed (Caused by SSLError(SSLError(1, '[SSL: TLSV1_UNRECOGNIZED_NAME] tlsv1 unrecognized name (_ssl.c:1007)')))",
       "items": 0,
-      "latency_ms": 431,
+      "latency_ms": 292,
+      "probation_status": "probation"
+    },
+    {
+      "name": "Mongabay Alaska",
+      "url": "https://news.mongabay.com/feed",
+      "category": "Environment",
+      "status": "ok",
+      "items": 32,
+      "latency_ms": 532,
+      "last_updated": "Tue, 05 May 2026 14:08:42 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Alaska Power Association",
+      "url": "https://www.alaskapower.org/feed/",
+      "category": "Energy",
+      "status": "warning",
+      "error": "No entries found in feed",
+      "items": 0,
+      "latency_ms": 1090,
+      "probation_status": "probation"
+    },
+    {
+      "name": "BLM Alaska Frontiers",
+      "url": "https://blm.gov/feedback",
+      "category": "Government",
+      "status": "ok",
+      "items": 15,
+      "latency_ms": 1951,
+      "last_updated": "Unknown",
       "probation_status": "probation"
     },
     {
@@ -868,47 +788,37 @@
       "status": "warning",
       "error": "No entries found in feed",
       "items": 0,
-      "latency_ms": 2380,
+      "latency_ms": 2403,
       "probation_status": "probation"
     },
     {
-      "name": "Skagway News",
-      "url": "https://skagwaynews.com/feed.atom",
+      "name": "Kodiak Mirror",
+      "url": "http://www.kodiakdailymirror.com/search/?f=rss&t=article&c=news&l=50&s=start_time&sd=desc",
       "category": "Regional",
       "status": "ok",
-      "items": 15,
-      "latency_ms": 573,
-      "last_updated": "29 Apr 2026",
+      "items": 50,
+      "latency_ms": 530,
+      "last_updated": "Unknown",
       "probation_status": "probation"
     },
     {
-      "name": "Alaska Wilderness League",
-      "url": "https://alaskawildernessleague.org/feed",
-      "category": "Environment",
+      "name": "Oil & Gas IQ",
+      "url": "https://oilandgasiq.com/rss/news",
+      "category": "Energy",
+      "status": "ok",
+      "items": 12,
+      "latency_ms": 1080,
+      "last_updated": "Tue, 05 May 2026 14:23:41 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Federal Court Alaska",
+      "url": "https://akd.uscourts.gov/rss-opinions.xml",
+      "category": "Legal",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='alaskawildernessleague.org', port=443): Max retries exceeded with url: /feed (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f86937bcf10>: Failed to establish a new connection: [Errno -2] Name or service not known'))",
+      "error": "HTTPSConnectionPool(host='akd.uscourts.gov', port=443): Max retries exceeded with url: /rss-opinions.xml (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2cac3ef790>: Failed to establish a new connection: [Errno -5] No address associated with hostname'))",
       "items": 0,
-      "latency_ms": 107,
-      "probation_status": "probation"
-    },
-    {
-      "name": "KMXT Kodiak",
-      "url": "https://www.kmxt.org/news.rss",
-      "category": "Radio",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 483,
-      "last_updated": "Fri, 01 May 2026 01:00:00 GMT",
-      "probation_status": "probation"
-    },
-    {
-      "name": "KCAW Sitka",
-      "url": "https://kcaw.org/feed",
-      "category": "Radio",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 733,
-      "last_updated": "Mon, 04 May 2026 23:20:20 +0000",
+      "latency_ms": 58,
       "probation_status": "probation"
     },
     {
@@ -917,8 +827,78 @@
       "category": "News",
       "status": "ok",
       "items": 15,
-      "latency_ms": 3063,
+      "latency_ms": 2509,
       "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Alaska Homeless Info",
+      "url": "https://alaskahomeless.org/feed",
+      "category": "Social",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='alaskahomeless.org', port=443): Max retries exceeded with url: /feed (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2cac0c8c40>: Failed to establish a new connection: [Errno -2] Name or service not known'))",
+      "items": 0,
+      "latency_ms": 31,
+      "probation_status": "probation"
+    },
+    {
+      "name": "KYUK Bethel",
+      "url": "https://kyuk.org/feed",
+      "category": "Radio",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='kyuk.org', port=443): Max retries exceeded with url: /feed (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2cac07df30>: Failed to establish a new connection: [Errno 111] Connection refused'))",
+      "items": 0,
+      "latency_ms": 147,
+      "probation_status": "probation"
+    },
+    {
+      "name": "Wrangell Sentinel",
+      "url": "https://wrangellsentinel.com/browse.rss",
+      "category": "Regional",
+      "status": "error",
+      "error": "<unknown>:14:4: mismatched tag",
+      "items": 0,
+      "latency_ms": 452,
+      "probation_status": "probation"
+    },
+    {
+      "name": "KHNS Haines/Skagway",
+      "url": "https://khns.org/feed",
+      "category": "Radio",
+      "status": "error",
+      "error": "<unknown>:2:1326: not well-formed (invalid token)",
+      "items": 0,
+      "latency_ms": 273,
+      "probation_status": "probation"
+    },
+    {
+      "name": "Alaska Wilderness League",
+      "url": "https://alaskawildernessleague.org/feed",
+      "category": "Environment",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='alaskawildernessleague.org', port=443): Max retries exceeded with url: /feed (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2cac20c3a0>: Failed to establish a new connection: [Errno -2] Name or service not known'))",
+      "items": 0,
+      "latency_ms": 42,
+      "probation_status": "probation"
+    },
+    {
+      "name": "Skagway News",
+      "url": "https://skagwaynews.com/feed.atom",
+      "category": "Regional",
+      "status": "ok",
+      "items": 15,
+      "latency_ms": 598,
+      "last_updated": "29 Apr 2026",
+      "probation_status": "probation"
+    },
+    {
+      "name": "KMXT Kodiak",
+      "url": "https://www.kmxt.org/news.rss",
+      "category": "Radio",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 575,
+      "last_updated": "Fri, 01 May 2026 01:00:00 GMT",
       "probation_status": "probation"
     },
     {
@@ -927,18 +907,18 @@
       "category": "Environment",
       "status": "ok",
       "items": 10,
-      "latency_ms": 556,
+      "latency_ms": 470,
       "last_updated": "Wed, 22 Apr 2026 19:16:03 +0000",
       "probation_status": "probation"
     },
     {
-      "name": "AK Medical Board",
-      "url": "https://commerce.alaska.gov/web/cbpl/ProfessionalLicensing/StateMedicalBoard/RSS",
-      "category": "Government",
+      "name": "Alaska Conservation Foundation",
+      "url": "https://alaskaconservation.org/feed",
+      "category": "Environment",
       "status": "ok",
-      "items": 14,
-      "latency_ms": 887,
-      "last_updated": "Unknown",
+      "items": 10,
+      "latency_ms": 678,
+      "last_updated": "Fri, 01 May 2026 21:43:57 +0000",
       "probation_status": "probation"
     },
     {
@@ -947,7 +927,7 @@
       "category": "Labor",
       "status": "ok",
       "items": 15,
-      "latency_ms": 857,
+      "latency_ms": 975,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
@@ -958,27 +938,37 @@
       "status": "warning",
       "error": "No entries found in feed",
       "items": 0,
-      "latency_ms": 1681,
+      "latency_ms": 1846,
       "probation_status": "probation"
     },
     {
-      "name": "Alaska Wildlife Alliance",
-      "url": "https://www.akwildlife.org/news?format=rss",
-      "category": "Wildlife",
+      "name": "Northern Miner Alaska",
+      "url": "https://northernminer.com/tag/alaska/feed",
+      "category": "Mining",
       "status": "ok",
-      "items": 20,
-      "latency_ms": 986,
-      "last_updated": "Thu, 30 Apr 2026 20:44:20 +0000",
+      "items": 7,
+      "latency_ms": 2742,
+      "last_updated": "Wed, 22 Apr 2026 21:33:30 +0000",
       "probation_status": "probation"
     },
     {
-      "name": "Alaska Conservation Foundation",
-      "url": "https://alaskaconservation.org/feed",
-      "category": "Environment",
+      "name": "Doyon Limited",
+      "url": "https://doyon.com/feed",
+      "category": "Native",
       "status": "ok",
       "items": 10,
-      "latency_ms": 1245,
-      "last_updated": "Fri, 01 May 2026 21:43:57 +0000",
+      "latency_ms": 3724,
+      "last_updated": "Tue, 05 May 2026 00:47:03 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "AK Medical Board",
+      "url": "https://commerce.alaska.gov/web/cbpl/ProfessionalLicensing/StateMedicalBoard/RSS",
+      "category": "Government",
+      "status": "ok",
+      "items": 14,
+      "latency_ms": 1362,
+      "last_updated": "Unknown",
       "probation_status": "probation"
     },
     {
@@ -987,8 +977,28 @@
       "category": "Environment",
       "status": "ok",
       "items": 10,
-      "latency_ms": 1216,
+      "latency_ms": 1291,
       "last_updated": "Tue, 05 May 2026 08:54:40 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Alaska Ocean Observing",
+      "url": "https://aoos.org/feed",
+      "category": "Science",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 2400,
+      "last_updated": "Sun, 03 May 2026 16:43:32 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Alaska Wildlife Alliance",
+      "url": "https://www.akwildlife.org/news?format=rss",
+      "category": "Wildlife",
+      "status": "ok",
+      "items": 20,
+      "latency_ms": 1229,
+      "last_updated": "Thu, 30 Apr 2026 20:44:20 +0000",
       "probation_status": "probation"
     },
     {
@@ -998,7 +1008,7 @@
       "status": "warning",
       "error": "No entries found in feed",
       "items": 0,
-      "latency_ms": 705,
+      "latency_ms": 719,
       "probation_status": "probation"
     },
     {
@@ -1007,28 +1017,8 @@
       "category": "Wildlife",
       "status": "ok",
       "items": 10,
-      "latency_ms": 929,
+      "latency_ms": 1040,
       "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Juneau CBJ",
-      "url": "https://juneau.org/feed",
-      "category": "Government",
-      "status": "ok",
-      "items": 5,
-      "latency_ms": 4657,
-      "last_updated": "Tue, 14 Apr 2026 22:49:32 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Alaska Ocean Observing",
-      "url": "https://aoos.org/feed",
-      "category": "Science",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 2346,
-      "last_updated": "Sun, 03 May 2026 16:43:32 +0000",
       "probation_status": "probation"
     },
     {
@@ -1037,8 +1027,28 @@
       "category": "Environment",
       "status": "ok",
       "items": 15,
-      "latency_ms": 1706,
+      "latency_ms": 1826,
       "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "The Arctic Institute",
+      "url": "https://thearcticinstitute.org/feed",
+      "category": "Research",
+      "status": "ok",
+      "items": 20,
+      "latency_ms": 2510,
+      "last_updated": "Tue, 05 May 2026 10:38:32 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "KCAW Sitka",
+      "url": "https://kcaw.org/feed",
+      "category": "Radio",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 2067,
+      "last_updated": "Mon, 04 May 2026 23:20:20 +0000",
       "probation_status": "probation"
     },
     {
@@ -1047,7 +1057,7 @@
       "category": "Safety",
       "status": "ok",
       "items": 15,
-      "latency_ms": 1934,
+      "latency_ms": 2047,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
@@ -1057,18 +1067,8 @@
       "category": "Native",
       "status": "ok",
       "items": 10,
-      "latency_ms": 1026,
+      "latency_ms": 1282,
       "last_updated": "Wed, 29 Apr 2026 01:24:13 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "North Slope Borough",
-      "url": "https://www.north-slope.org/news/feed",
-      "category": "Government",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 4985,
-      "last_updated": "Mon, 20 Apr 2026 06:16:30 +0000",
       "probation_status": "probation"
     },
     {
@@ -1077,17 +1077,7 @@
       "category": "Environment",
       "status": "ok",
       "items": 15,
-      "latency_ms": 2277,
-      "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "NANA Regional Corporation",
-      "url": "https://nana.com/feed",
-      "category": "Native",
-      "status": "ok",
-      "items": 11,
-      "latency_ms": 1536,
+      "latency_ms": 2376,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
@@ -1097,8 +1087,38 @@
       "category": "Housing",
       "status": "ok",
       "items": 10,
-      "latency_ms": 1184,
+      "latency_ms": 669,
       "last_updated": "Tue, 05 May 2026 01:16:00 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "NANA Regional Corporation",
+      "url": "https://nana.com/feed",
+      "category": "Native",
+      "status": "ok",
+      "items": 11,
+      "latency_ms": 1311,
+      "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Alaska Trucking Association",
+      "url": "https://aktrucking.org/feed",
+      "category": "Transportation",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='aktrucking.org', port=443): Max retries exceeded with url: /feed (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2cac8ef2b0>: Failed to establish a new connection: [Errno -5] No address associated with hostname'))",
+      "items": 0,
+      "latency_ms": 90,
+      "probation_status": "probation"
+    },
+    {
+      "name": "UAF News",
+      "url": "https://uaf.edu/news/feed",
+      "category": "Science",
+      "status": "ok",
+      "items": 15,
+      "latency_ms": 3642,
+      "last_updated": "Unknown",
       "probation_status": "probation"
     },
     {
@@ -1106,49 +1126,9 @@
       "url": "https://alaskaaircrash.com/feed",
       "category": "Safety",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='alaskaaircrash.com', port=443): Max retries exceeded with url: /feed (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f8680c9c640>: Failed to establish a new connection: [Errno -2] Name or service not known'))",
+      "error": "HTTPSConnectionPool(host='alaskaaircrash.com', port=443): Max retries exceeded with url: /feed (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2cac68a0e0>: Failed to establish a new connection: [Errno -2] Name or service not known'))",
       "items": 0,
-      "latency_ms": 55,
-      "probation_status": "probation"
-    },
-    {
-      "name": "Kawerak Inc",
-      "url": "https://kawerak.org/feed",
-      "category": "Native",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 1438,
-      "last_updated": "Thu, 30 Apr 2026 21:55:31 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Sierra Club Alaska",
-      "url": "https://sierraclub.org/rss.xml",
-      "category": "Environment",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 2685,
-      "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "UAA Justice Center",
-      "url": "https://uaa.alaska.edu/academics/college-of-health/departments/justice-center/news/feed",
-      "category": "Research",
-      "status": "ok",
-      "items": 15,
-      "latency_ms": 3673,
-      "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Center for Biological Diversity",
-      "url": "https://biologicaldiversity.org/feed",
-      "category": "Wildlife",
-      "status": "ok",
-      "items": 15,
-      "latency_ms": 2223,
-      "last_updated": "Unknown",
+      "latency_ms": 46,
       "probation_status": "probation"
     },
     {
@@ -1157,27 +1137,37 @@
       "category": "Native",
       "status": "ok",
       "items": 10,
-      "latency_ms": 2137,
+      "latency_ms": 1600,
       "last_updated": "Wed, 29 Apr 2026 20:48:38 +0000",
       "probation_status": "probation"
     },
     {
-      "name": "Alaska Trucking Association",
-      "url": "https://aktrucking.org/feed",
-      "category": "Transportation",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='aktrucking.org', port=443): Max retries exceeded with url: /feed (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f86937ebcd0>: Failed to establish a new connection: [Errno -5] No address associated with hostname'))",
-      "items": 0,
-      "latency_ms": 222,
-      "probation_status": "probation"
-    },
-    {
-      "name": "Cook Inlet Region Inc",
-      "url": "https://ciri.com/feed",
+      "name": "Ahtna Inc",
+      "url": "https://ahtna-inc.com/feed",
       "category": "Native",
       "status": "ok",
       "items": 15,
-      "latency_ms": 2155,
+      "latency_ms": 1209,
+      "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Coast Guard District 17",
+      "url": "https://news.uscg.mil/feed",
+      "category": "Maritime",
+      "status": "error",
+      "error": "<unknown>:10:2: mismatched tag",
+      "items": 0,
+      "latency_ms": 562,
+      "probation_status": "probation"
+    },
+    {
+      "name": "Center for Biological Diversity",
+      "url": "https://biologicaldiversity.org/feed",
+      "category": "Wildlife",
+      "status": "ok",
+      "items": 15,
+      "latency_ms": 2285,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
@@ -1188,26 +1178,16 @@
       "status": "warning",
       "error": "No entries found in feed",
       "items": 0,
-      "latency_ms": 828,
+      "latency_ms": 576,
       "probation_status": "probation"
     },
     {
-      "name": "Alaska Native Tribal Health",
-      "url": "https://anthc.org/feed",
-      "category": "Health",
+      "name": "UAA Justice Center",
+      "url": "https://uaa.alaska.edu/academics/college-of-health/departments/justice-center/news/feed",
+      "category": "Research",
       "status": "ok",
       "items": 15,
-      "latency_ms": 1861,
-      "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Ahtna Inc",
-      "url": "https://ahtna-inc.com/feed",
-      "category": "Native",
-      "status": "ok",
-      "items": 15,
-      "latency_ms": 1863,
+      "latency_ms": 4055,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
@@ -1217,7 +1197,7 @@
       "category": "Emergency",
       "status": "ok",
       "items": 10,
-      "latency_ms": 467,
+      "latency_ms": 516,
       "last_updated": "Tue, 05 May 2026 00:36:43 +0000",
       "probation_status": "probation"
     },
@@ -1227,37 +1207,17 @@
       "category": "Transportation",
       "status": "ok",
       "items": 15,
-      "latency_ms": 1707,
+      "latency_ms": 1266,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
     {
-      "name": "Renewable Energy Alaska",
-      "url": "https://alaskarenewableenergy.org/feed",
-      "category": "Energy",
-      "status": "ok",
-      "items": 12,
-      "latency_ms": 4593,
-      "last_updated": "Tue, 05 May 2026 01:51:30 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Alaska SeaLife Center",
-      "url": "https://alaskasealife.org/science_blog_rss",
-      "category": "Research",
-      "status": "warning",
-      "error": "No entries found in feed",
-      "items": 0,
-      "latency_ms": 418,
-      "probation_status": "probation"
-    },
-    {
-      "name": "Alaska Marine Highway",
-      "url": "https://dot.alaska.gov/amhs/feed",
-      "category": "Transportation",
+      "name": "Cook Inlet Region Inc",
+      "url": "https://ciri.com/feed",
+      "category": "Native",
       "status": "ok",
       "items": 15,
-      "latency_ms": 1789,
+      "latency_ms": 2008,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
@@ -1267,57 +1227,47 @@
       "category": "Transportation",
       "status": "ok",
       "items": 15,
-      "latency_ms": 1775,
+      "latency_ms": 1422,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
     {
-      "name": "UAF News",
-      "url": "https://uaf.edu/news/feed",
-      "category": "Science",
+      "name": "Alaska Marine Highway",
+      "url": "https://dot.alaska.gov/amhs/feed",
+      "category": "Transportation",
       "status": "ok",
       "items": 15,
-      "latency_ms": 4555,
+      "latency_ms": 1458,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
     {
-      "name": "Alaska Native Heritage Center",
-      "url": "https://alaskanative.net/feed",
-      "category": "Native",
+      "name": "Alaska Native Tribal Health",
+      "url": "https://anthc.org/feed",
+      "category": "Health",
       "status": "ok",
       "items": 15,
-      "latency_ms": 2376,
+      "latency_ms": 1882,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
     {
-      "name": "Alaska Food Bank",
-      "url": "https://alaskafoodbank.org/feed",
-      "category": "Social",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='alaskafoodbank.org', port=443): Max retries exceeded with url: /feed (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f868067b430>: Failed to establish a new connection: [Errno -2] Name or service not known'))",
-      "items": 0,
-      "latency_ms": 56,
-      "probation_status": "probation"
-    },
-    {
-      "name": "Arctic Research Consortium",
-      "url": "https://arcus.org/feed",
+      "name": "Alaska SeaLife Center",
+      "url": "https://alaskasealife.org/science_blog_rss",
       "category": "Research",
-      "status": "error",
-      "error": "<unknown>:2:0: syntax error",
+      "status": "warning",
+      "error": "No entries found in feed",
       "items": 0,
-      "latency_ms": 321,
+      "latency_ms": 424,
       "probation_status": "probation"
     },
     {
-      "name": "NWS Tsunami Center",
-      "url": "https://tsunami.gov/feed",
+      "name": "Alaska Fire Service",
+      "url": "https://fire.ak.blm.gov/feed",
       "category": "Emergency",
       "status": "ok",
       "items": 15,
-      "latency_ms": 784,
+      "latency_ms": 832,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
@@ -1327,18 +1277,58 @@
       "category": "Climate",
       "status": "ok",
       "items": 10,
-      "latency_ms": 165,
+      "latency_ms": 153,
       "last_updated": "Tue, 31 Mar 2026 22:40:39 +0000",
       "probation_status": "probation"
     },
     {
-      "name": "Alaska Venture Fund",
-      "url": "https://akventure.org/feed",
-      "category": "Business",
+      "name": "Alaska Native Heritage Center",
+      "url": "https://alaskanative.net/feed",
+      "category": "Native",
+      "status": "ok",
+      "items": 15,
+      "latency_ms": 2016,
+      "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Kawerak Inc",
+      "url": "https://kawerak.org/feed",
+      "category": "Native",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 1945,
+      "last_updated": "Thu, 30 Apr 2026 21:55:31 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Arctic Research Consortium",
+      "url": "https://arcus.org/feed",
+      "category": "Research",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='akventure.org', port=443): Max retries exceeded with url: /feed (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f86806ee770>: Failed to establish a new connection: [Errno -2] Name or service not known'))",
+      "error": "<unknown>:2:0: syntax error",
       "items": 0,
-      "latency_ms": 53,
+      "latency_ms": 338,
+      "probation_status": "probation"
+    },
+    {
+      "name": "NWS Tsunami Center",
+      "url": "https://tsunami.gov/feed",
+      "category": "Emergency",
+      "status": "ok",
+      "items": 15,
+      "latency_ms": 803,
+      "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Renewable Energy Alaska",
+      "url": "https://alaskarenewableenergy.org/feed",
+      "category": "Energy",
+      "status": "ok",
+      "items": 12,
+      "latency_ms": 4746,
+      "last_updated": "Tue, 05 May 2026 01:51:30 +0000",
       "probation_status": "probation"
     },
     {
@@ -1347,68 +1337,8 @@
       "category": "Emergency",
       "status": "ok",
       "items": 15,
-      "latency_ms": 774,
+      "latency_ms": 842,
       "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Alaska Fire Service",
-      "url": "https://fire.ak.blm.gov/feed",
-      "category": "Emergency",
-      "status": "ok",
-      "items": 15,
-      "latency_ms": 919,
-      "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Anchorage Economic Dev",
-      "url": "https://aedcweb.com/feed",
-      "category": "Economy",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 262,
-      "last_updated": "Fri, 13 Mar 2026 00:36:03 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Peninsula Clarion",
-      "url": "https://www.peninsulaclarion.com/feed",
-      "category": "Regional",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 190,
-      "last_updated": "Mon, 04 May 2026 00:30:32 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Alaska Mental Health Trust",
-      "url": "https://alaskamentalhealthtrust.org/feed",
-      "category": "Health",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 429,
-      "last_updated": "Tue, 28 Apr 2026 18:36:06 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Alaska Small Business Dev",
-      "url": "https://aksbdc.org/feed",
-      "category": "Business",
-      "status": "ok",
-      "items": 20,
-      "latency_ms": 459,
-      "last_updated": "Fri, 01 May 2026 18:38:01 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "News Talk KFQD 750",
-      "url": "https://kfqd.com/feed",
-      "category": "News",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 422,
-      "last_updated": "Mon, 04 May 2026 22:33:18 +0000",
       "probation_status": "probation"
     },
     {
@@ -1417,17 +1347,27 @@
       "category": "Politics",
       "status": "ok",
       "items": 12,
-      "latency_ms": 451,
+      "latency_ms": 166,
       "last_updated": "Wed, 12 Nov 2025 21:18:08 +0000",
       "probation_status": "probation"
     },
     {
-      "name": "Northern Economics",
-      "url": "https://northerneconomics.com/feed",
-      "category": "Economy",
+      "name": "Alaska Mental Health Trust",
+      "url": "https://alaskamentalhealthtrust.org/feed",
+      "category": "Health",
       "status": "ok",
-      "items": 4,
-      "latency_ms": 467,
+      "items": 10,
+      "latency_ms": 603,
+      "last_updated": "Tue, 28 Apr 2026 18:36:06 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Division of Homeland Security",
+      "url": "https://ready.alaska.gov/feed",
+      "category": "Emergency",
+      "status": "ok",
+      "items": 15,
+      "latency_ms": 1565,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
@@ -1437,17 +1377,77 @@
       "category": "Social",
       "status": "ok",
       "items": 10,
-      "latency_ms": 588,
+      "latency_ms": 1077,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
     {
-      "name": "Division of Homeland Security",
-      "url": "https://ready.alaska.gov/feed",
-      "category": "Emergency",
+      "name": "Sierra Club Alaska",
+      "url": "https://sierraclub.org/rss.xml",
+      "category": "Environment",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 4497,
+      "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Alaska Small Business Dev",
+      "url": "https://aksbdc.org/feed",
+      "category": "Business",
+      "status": "ok",
+      "items": 20,
+      "latency_ms": 1143,
+      "last_updated": "Fri, 01 May 2026 18:38:01 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Northern Economics",
+      "url": "https://northerneconomics.com/feed",
+      "category": "Economy",
+      "status": "ok",
+      "items": 4,
+      "latency_ms": 1133,
+      "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Koniag Inc",
+      "url": "https://koniag.com/feed",
+      "category": "Native",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 3219,
+      "last_updated": "Thu, 30 Apr 2026 19:24:48 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Peninsula Clarion",
+      "url": "https://www.peninsulaclarion.com/feed",
+      "category": "Regional",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 880,
+      "last_updated": "Mon, 04 May 2026 00:30:32 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Anchorage Economic Dev",
+      "url": "https://aedcweb.com/feed",
+      "category": "Economy",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 1463,
+      "last_updated": "Fri, 13 Mar 2026 00:36:03 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Providence Alaska Medical",
+      "url": "https://alaska.providence.org/feed",
+      "category": "Health",
       "status": "ok",
       "items": 15,
-      "latency_ms": 1363,
+      "latency_ms": 1753,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
@@ -1457,7 +1457,7 @@
       "category": "Research",
       "status": "ok",
       "items": 15,
-      "latency_ms": 1316,
+      "latency_ms": 2241,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
@@ -1467,28 +1467,8 @@
       "category": "Climate",
       "status": "ok",
       "items": 10,
-      "latency_ms": 1082,
+      "latency_ms": 1985,
       "last_updated": "Sat, 02 May 2026 17:03:03 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Alaska Magazine",
-      "url": "https://www.alaskamagazine.com/feed",
-      "category": "News",
-      "status": "error",
-      "error": "<unknown>:2:1326: not well-formed (invalid token)",
-      "items": 0,
-      "latency_ms": 317,
-      "probation_status": "probation"
-    },
-    {
-      "name": "KRBD Ketchikan",
-      "url": "https://www.krbd.org/feed",
-      "category": "Radio",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 261,
-      "last_updated": "Fri, 01 May 2026 20:53:52 +0000",
       "probation_status": "probation"
     },
     {
@@ -1498,87 +1478,17 @@
       "status": "error",
       "error": "<unknown>:14:4: mismatched tag",
       "items": 0,
-      "latency_ms": 416,
+      "latency_ms": 405,
       "probation_status": "probation"
     },
     {
-      "name": "Koniag Inc",
-      "url": "https://koniag.com/feed",
-      "category": "Native",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 3039,
-      "last_updated": "Thu, 30 Apr 2026 19:24:48 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Senior Voice Alaska",
-      "url": "https://seniorvoicealaska.com/rss",
-      "category": "Health",
-      "status": "ok",
-      "items": 28,
-      "latency_ms": 790,
-      "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Alaska Div of Public Health",
-      "url": "https://health.alaska.gov/feed",
-      "category": "Health",
-      "status": "ok",
-      "items": 15,
-      "latency_ms": 1442,
-      "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "KDLG Dillingham",
-      "url": "https://www.kdlg.org/news.rss",
-      "category": "Radio",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 667,
-      "last_updated": "Fri, 30 Jan 2026 19:05:30 GMT",
-      "probation_status": "probation"
-    },
-    {
-      "name": "KNBA Anchorage",
-      "url": "https://www.knba.org/news.rss",
-      "category": "Radio",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 600,
-      "last_updated": "Tue, 05 May 2026 10:24:43 GMT",
-      "probation_status": "probation"
-    },
-    {
-      "name": "KUAC Fairbanks",
-      "url": "https://fm.kuac.org/index.rss",
-      "category": "Radio",
-      "status": "warning",
-      "error": "No entries found in feed",
+      "name": "Alaska Magazine",
+      "url": "https://www.alaskamagazine.com/feed",
+      "category": "News",
+      "status": "error",
+      "error": "<unknown>:2:1326: not well-formed (invalid token)",
       "items": 0,
-      "latency_ms": 588,
-      "probation_status": "probation"
-    },
-    {
-      "name": "KSTK Wrangell",
-      "url": "https://www.kstk.org/feed",
-      "category": "Radio",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 542,
-      "last_updated": "Tue, 05 May 2026 00:18:15 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Ketchikan Daily News",
-      "url": "http://www.ketchikandailynews.com/search/?f=rss&t=article&c=news&l=50&s=start_time&sd=desc",
-      "category": "Regional",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 1050,
-      "last_updated": "Unknown",
+      "latency_ms": 493,
       "probation_status": "probation"
     },
     {
@@ -1587,7 +1497,7 @@
       "category": "News",
       "status": "ok",
       "items": 15,
-      "latency_ms": 1535,
+      "latency_ms": 1617,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
@@ -1597,8 +1507,88 @@
       "category": "Native",
       "status": "ok",
       "items": 15,
-      "latency_ms": 1555,
+      "latency_ms": 1203,
       "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Ketchikan Daily News",
+      "url": "http://www.ketchikandailynews.com/search/?f=rss&t=article&c=news&l=50&s=start_time&sd=desc",
+      "category": "Regional",
+      "status": "error",
+      "error": "<unknown>:2:0: syntax error",
+      "items": 0,
+      "latency_ms": 540,
+      "probation_status": "probation"
+    },
+    {
+      "name": "KDLG Dillingham",
+      "url": "https://www.kdlg.org/news.rss",
+      "category": "Radio",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 456,
+      "last_updated": "Fri, 30 Jan 2026 19:05:30 GMT",
+      "probation_status": "probation"
+    },
+    {
+      "name": "KNBA Anchorage",
+      "url": "https://www.knba.org/news.rss",
+      "category": "Radio",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 427,
+      "last_updated": "Tue, 05 May 2026 10:24:43 GMT",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Senior Voice Alaska",
+      "url": "https://seniorvoicealaska.com/rss",
+      "category": "Health",
+      "status": "ok",
+      "items": 28,
+      "latency_ms": 1014,
+      "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Alaska Venture Fund",
+      "url": "https://akventure.org/feed",
+      "category": "Business",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='akventure.org', port=443): Max retries exceeded with url: /feed (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2cacc18b80>: Failed to establish a new connection: [Errno -2] Name or service not known'))",
+      "items": 0,
+      "latency_ms": 2248,
+      "probation_status": "probation"
+    },
+    {
+      "name": "Alaska Div of Public Health",
+      "url": "https://health.alaska.gov/feed",
+      "category": "Health",
+      "status": "ok",
+      "items": 15,
+      "latency_ms": 2504,
+      "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "KUAC Fairbanks",
+      "url": "https://fm.kuac.org/index.rss",
+      "category": "Radio",
+      "status": "warning",
+      "error": "No entries found in feed",
+      "items": 0,
+      "latency_ms": 568,
+      "probation_status": "probation"
+    },
+    {
+      "name": "North Pacific Research",
+      "url": "https://nprb.org/feed",
+      "category": "Research",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 2816,
+      "last_updated": "Mon, 06 Apr 2026 22:01:17 +0000",
       "probation_status": "probation"
     },
     {
@@ -1607,18 +1597,8 @@
       "category": "Radio",
       "status": "ok",
       "items": 10,
-      "latency_ms": 1072,
+      "latency_ms": 892,
       "last_updated": "Fri, 01 May 2026 23:03:18 GMT",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Pacific Fishing Magazine",
-      "url": "https://www.pacificfishing.com/feed",
-      "category": "Fisheries",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='www.pacificfishing.com', port=443): Max retries exceeded with url: /feed (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f8690268940>: Failed to establish a new connection: [Errno 111] Connection refused'))",
-      "items": 0,
-      "latency_ms": 405,
       "probation_status": "probation"
     },
     {
@@ -1627,8 +1607,28 @@
       "category": "News",
       "status": "ok",
       "items": 15,
-      "latency_ms": 1693,
+      "latency_ms": 1626,
       "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Pacific Fishing Magazine",
+      "url": "https://www.pacificfishing.com/feed",
+      "category": "Fisheries",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='www.pacificfishing.com', port=443): Max retries exceeded with url: /feed (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2ca4be9fc0>: Failed to establish a new connection: [Errno 111] Connection refused'))",
+      "items": 0,
+      "latency_ms": 472,
+      "probation_status": "probation"
+    },
+    {
+      "name": "Institute of the North",
+      "url": "https://institutenorth.org/feed",
+      "category": "Research",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 3219,
+      "last_updated": "Sat, 28 Feb 2026 02:13:02 +0000",
       "probation_status": "probation"
     },
     {
@@ -1636,9 +1636,19 @@
       "url": "https://rss.faa.gov/safetyalertsforoperators.xml",
       "category": "Safety",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='rss.faa.gov', port=443): Max retries exceeded with url: /safetyalertsforoperators.xml (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f8680d0ef50>: Failed to establish a new connection: [Errno -2] Name or service not known'))",
+      "error": "HTTPSConnectionPool(host='rss.faa.gov', port=443): Max retries exceeded with url: /safetyalertsforoperators.xml (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2cacc19810>: Failed to establish a new connection: [Errno -2] Name or service not known'))",
       "items": 0,
-      "latency_ms": 74,
+      "latency_ms": 65,
+      "probation_status": "probation"
+    },
+    {
+      "name": "KSTK Wrangell",
+      "url": "https://www.kstk.org/feed",
+      "category": "Radio",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 1115,
+      "last_updated": "Tue, 05 May 2026 00:18:15 +0000",
       "probation_status": "probation"
     },
     {
@@ -1648,16 +1658,16 @@
       "status": "error",
       "error": "<unknown>:2:1326: not well-formed (invalid token)",
       "items": 0,
-      "latency_ms": 854,
+      "latency_ms": 774,
       "probation_status": "probation"
     },
     {
-      "name": "Salamatof Tribe News",
-      "url": "https://www.salamatoftribe.com/news",
-      "category": "Native",
+      "name": "University of Alaska System",
+      "url": "https://alaska.edu/feed",
+      "category": "Education",
       "status": "ok",
-      "items": 4,
-      "latency_ms": 1911,
+      "items": 15,
+      "latency_ms": 3651,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
@@ -1668,27 +1678,7 @@
       "status": "error",
       "error": "<unknown>:90:14: not well-formed (invalid token)",
       "items": 0,
-      "latency_ms": 797,
-      "probation_status": "probation"
-    },
-    {
-      "name": "Providence Alaska Medical",
-      "url": "https://alaska.providence.org/feed",
-      "category": "Health",
-      "status": "ok",
-      "items": 15,
-      "latency_ms": 2378,
-      "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Coast Guard District 17",
-      "url": "https://news.uscg.mil/feed",
-      "category": "Maritime",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='news.uscg.mil', port=443): Max retries exceeded with url: /feed (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f8680c9e590>: Failed to establish a new connection: [Errno 101] Network is unreachable'))",
-      "items": 0,
-      "latency_ms": 4064,
+      "latency_ms": 867,
       "probation_status": "probation"
     },
     {
@@ -1698,37 +1688,7 @@
       "status": "error",
       "error": "<unknown>:2:1326: not well-formed (invalid token)",
       "items": 0,
-      "latency_ms": 919,
-      "probation_status": "probation"
-    },
-    {
-      "name": "North Pacific Research",
-      "url": "https://nprb.org/feed",
-      "category": "Research",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 2856,
-      "last_updated": "Mon, 06 Apr 2026 22:01:17 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "KFSK Petersburg",
-      "url": "https://www.kfsk.org/comments/feed/",
-      "category": "Radio",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 1471,
-      "last_updated": "Thu, 06 Feb 2020 21:36:02 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "University of Alaska System",
-      "url": "https://alaska.edu/feed",
-      "category": "Education",
-      "status": "ok",
-      "items": 15,
-      "latency_ms": 3122,
-      "last_updated": "Unknown",
+      "latency_ms": 990,
       "probation_status": "probation"
     },
     {
@@ -1737,58 +1697,38 @@
       "category": "Fisheries",
       "status": "ok",
       "items": 15,
-      "latency_ms": 1100,
+      "latency_ms": 1050,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
     {
-      "name": "Muni Public Notices",
-      "url": "https://www.muni.org/Departments/Mayor/PressReleases/RSS/Public_Notices.xml",
-      "category": "Government",
+      "name": "KFSK Petersburg",
+      "url": "https://www.kfsk.org/comments/feed/",
+      "category": "Radio",
       "status": "ok",
-      "items": 12,
-      "latency_ms": 1256,
-      "last_updated": "Unknown",
+      "items": 10,
+      "latency_ms": 1437,
+      "last_updated": "Thu, 06 Feb 2020 21:36:02 +0000",
       "probation_status": "probation"
     },
     {
-      "name": "Alaska Senate Majority",
-      "url": "https://alaskasenate.org/feed",
+      "name": "Coast Guard District 17 Alaska",
+      "url": "https://www.news.uscg.mil/RSS/tabid/197/ctl/GetFeed/mid/804/Default.aspx?feed=17thdistrict",
+      "category": "Maritime",
+      "status": "error",
+      "error": "<unknown>:10:2: mismatched tag",
+      "items": 0,
+      "latency_ms": 574,
+      "probation_status": "probation"
+    },
+    {
+      "name": "Alaska House Majority",
+      "url": "https://alaskahousemajority.com/feed/",
       "category": "Government",
       "status": "ok",
       "items": 10,
-      "latency_ms": 485,
-      "last_updated": "Mon, 04 May 2026 16:52:19 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Muni Anchorage Mayor Releases",
-      "url": "https://www.muni.org/Departments/Mayor/PressReleases/RSS/Press_Releases.xml",
-      "category": "Government",
-      "status": "ok",
-      "items": 12,
-      "latency_ms": 1461,
-      "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Alaska Process Industry",
-      "url": "https://www.akpic.org/feed",
-      "category": "Industry",
-      "status": "error",
-      "error": "<unknown>:2:0: syntax error",
-      "items": 0,
-      "latency_ms": 299,
-      "probation_status": "probation"
-    },
-    {
-      "name": "NTSB Aviation Accidents AK",
-      "url": "https://www.ntsb.gov/investigations/Pages/aviation.aspx/rss.xml",
-      "category": "Safety",
-      "status": "ok",
-      "items": 1,
-      "latency_ms": 796,
-      "last_updated": "Unknown",
+      "latency_ms": 357,
+      "last_updated": "Mon, 04 May 2026 18:24:30 +0000",
       "probation_status": "probation"
     },
     {
@@ -1798,37 +1738,57 @@
       "status": "warning",
       "error": "No entries found in feed",
       "items": 0,
-      "latency_ms": 660,
+      "latency_ms": 457,
       "probation_status": "probation"
     },
     {
-      "name": "Federal Court Alaska",
-      "url": "https://akd.uscourts.gov/rss-opinions.xml",
-      "category": "Legal",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='akd.uscourts.gov', port=443): Max retries exceeded with url: /rss-opinions.xml (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f8680c2f970>: Failed to establish a new connection: [Errno -5] No address associated with hostname'))",
-      "items": 0,
-      "latency_ms": 68,
-      "probation_status": "probation"
-    },
-    {
-      "name": "Ketchikan Gateway Borough",
-      "url": "https://www.kgbak.us/CivicAlerts.aspx?format=rss",
+      "name": "Alaska Senate Majority",
+      "url": "https://alaskasenate.org/feed",
       "category": "Government",
       "status": "ok",
-      "items": 2,
-      "latency_ms": 596,
+      "items": 10,
+      "latency_ms": 494,
+      "last_updated": "Mon, 04 May 2026 16:52:19 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Alaska Process Industry",
+      "url": "https://www.akpic.org/feed",
+      "category": "Industry",
+      "status": "error",
+      "error": "<unknown>:2:0: syntax error",
+      "items": 0,
+      "latency_ms": 177,
+      "probation_status": "probation"
+    },
+    {
+      "name": "Muni Anchorage Mayor Releases",
+      "url": "https://www.muni.org/Departments/Mayor/PressReleases/RSS/Press_Releases.xml",
+      "category": "Government",
+      "status": "ok",
+      "items": 12,
+      "latency_ms": 1879,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
     {
-      "name": "Alaska House Majority",
-      "url": "https://alaskahousemajority.com/feed/",
+      "name": "Muni Public Notices",
+      "url": "https://www.muni.org/Departments/Mayor/PressReleases/RSS/Public_Notices.xml",
       "category": "Government",
       "status": "ok",
-      "items": 10,
-      "latency_ms": 616,
-      "last_updated": "Mon, 04 May 2026 18:24:30 +0000",
+      "items": 12,
+      "latency_ms": 1738,
+      "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Alaska Food Bank",
+      "url": "https://alaskafoodbank.org/feed",
+      "category": "Social",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='alaskafoodbank.org', port=443): Max retries exceeded with url: /feed (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2cac0c8370>: Failed to establish a new connection: [Errno -2] Name or service not known'))",
+      "items": 0,
+      "latency_ms": 4018,
       "probation_status": "probation"
     },
     {
@@ -1837,7 +1797,7 @@
       "category": "Infrastructure",
       "status": "ok",
       "items": 10,
-      "latency_ms": 658,
+      "latency_ms": 1027,
       "last_updated": "Mon, 02 Mar 2026 18:03:41 +0000",
       "probation_status": "probation"
     },
@@ -1847,48 +1807,38 @@
       "category": "Government",
       "status": "ok",
       "items": 15,
-      "latency_ms": 1618,
+      "latency_ms": 1813,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
     {
-      "name": "Alaska DEC Spill Reports",
-      "url": "https://dec.alaska.gov/Applications/SPAR/PubMapViewer/feed",
-      "category": "Environment",
+      "name": "Federal Court Alaska",
+      "url": "https://akd.uscourts.gov/rss-opinions.xml",
+      "category": "Legal",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='akd.uscourts.gov', port=443): Max retries exceeded with url: /rss-opinions.xml (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2caed929b0>: Failed to establish a new connection: [Errno -5] No address associated with hostname'))",
+      "items": 0,
+      "latency_ms": 32,
+      "probation_status": "probation"
+    },
+    {
+      "name": "NTSB Aviation Accidents AK",
+      "url": "https://www.ntsb.gov/investigations/Pages/aviation.aspx/rss.xml",
+      "category": "Safety",
       "status": "ok",
-      "items": 15,
-      "latency_ms": 726,
+      "items": 1,
+      "latency_ms": 1428,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
     {
-      "name": "Chugach Electric Association",
-      "url": "https://www.chugachelectric.com/feed",
-      "category": "Infrastructure",
-      "status": "ok",
-      "items": 15,
-      "latency_ms": 1028,
-      "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Homer Electric Association",
-      "url": "https://www.homerelectric.com/feed",
-      "category": "Infrastructure",
+      "name": "KRBD Ketchikan",
+      "url": "https://www.krbd.org/feed",
+      "category": "Radio",
       "status": "ok",
       "items": 10,
-      "latency_ms": 1091,
-      "last_updated": "Sat, 18 Apr 2026 01:34:01 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Institute of the North",
-      "url": "https://institutenorth.org/feed",
-      "category": "Research",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 3721,
-      "last_updated": "Sat, 28 Feb 2026 02:13:02 +0000",
+      "latency_ms": 2676,
+      "last_updated": "Fri, 01 May 2026 20:53:52 +0000",
       "probation_status": "probation"
     },
     {
@@ -1897,7 +1847,17 @@
       "category": "Infrastructure",
       "status": "ok",
       "items": 15,
-      "latency_ms": 1116,
+      "latency_ms": 1125,
+      "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Ketchikan Gateway Borough",
+      "url": "https://www.kgbak.us/CivicAlerts.aspx?format=rss",
+      "category": "Government",
+      "status": "ok",
+      "items": 2,
+      "latency_ms": 1458,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
@@ -1907,7 +1867,17 @@
       "category": "Government",
       "status": "ok",
       "items": 15,
-      "latency_ms": 1755,
+      "latency_ms": 1981,
+      "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Alaska DEC Spill Reports",
+      "url": "https://dec.alaska.gov/Applications/SPAR/PubMapViewer/feed",
+      "category": "Environment",
+      "status": "ok",
+      "items": 15,
+      "latency_ms": 1408,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
@@ -1917,28 +1887,18 @@
       "category": "News",
       "status": "ok",
       "items": 15,
-      "latency_ms": 3082,
+      "latency_ms": 3377,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
     {
-      "name": "Chugach Alaska Corporation",
-      "url": "https://www.chugach.com/feed",
-      "category": "Native",
-      "status": "ok",
-      "items": 12,
-      "latency_ms": 534,
-      "last_updated": "Fri, 24 Apr 2026 14:16:12 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Cook Inletkeeper",
-      "url": "https://inletkeeper.org/feed",
-      "category": "Environment",
+      "name": "News Talk KFQD 750",
+      "url": "https://kfqd.com/feed",
+      "category": "News",
       "status": "ok",
       "items": 10,
-      "latency_ms": 1103,
-      "last_updated": "Fri, 01 May 2026 21:54:44 +0000",
+      "latency_ms": 4547,
+      "last_updated": "Mon, 04 May 2026 22:33:18 +0000",
       "probation_status": "probation"
     },
     {
@@ -1947,7 +1907,27 @@
       "category": "Parks",
       "status": "ok",
       "items": 553,
-      "latency_ms": 1183,
+      "latency_ms": 1348,
+      "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Homer Electric Association",
+      "url": "https://www.homerelectric.com/feed",
+      "category": "Infrastructure",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 1689,
+      "last_updated": "Sat, 18 Apr 2026 01:34:01 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Chugach Electric Association",
+      "url": "https://www.chugachelectric.com/feed",
+      "category": "Infrastructure",
+      "status": "ok",
+      "items": 15,
+      "latency_ms": 1601,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
@@ -1957,7 +1937,57 @@
       "category": "Energy",
       "status": "ok",
       "items": 12,
-      "latency_ms": 1399,
+      "latency_ms": 1504,
+      "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Cook Inletkeeper",
+      "url": "https://inletkeeper.org/feed",
+      "category": "Environment",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 1129,
+      "last_updated": "Fri, 01 May 2026 21:54:44 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Alaska Village Electric Coop",
+      "url": "https://avec.org/feed",
+      "category": "Infrastructure",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 1916,
+      "last_updated": "Sun, 29 Mar 2026 17:57:24 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Chugach Alaska Corporation",
+      "url": "https://www.chugach.com/feed",
+      "category": "Native",
+      "status": "ok",
+      "items": 12,
+      "latency_ms": 765,
+      "last_updated": "Fri, 24 Apr 2026 14:16:12 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Arctic Audubon",
+      "url": "https://ak.audubon.org/feed",
+      "category": "Wildlife",
+      "status": "ok",
+      "items": 15,
+      "latency_ms": 1538,
+      "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Ahtna Inc",
+      "url": "https://www.ahtna.com/feed",
+      "category": "Native",
+      "status": "ok",
+      "items": 15,
+      "latency_ms": 858,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
@@ -1967,37 +1997,17 @@
       "category": "Native",
       "status": "ok",
       "items": 10,
-      "latency_ms": 631,
+      "latency_ms": 704,
       "last_updated": "Tue, 05 May 2026 00:47:03 +0000",
       "probation_status": "probation"
     },
     {
-      "name": "Arctic Audubon",
-      "url": "https://ak.audubon.org/feed",
-      "category": "Wildlife",
-      "status": "ok",
-      "items": 15,
-      "latency_ms": 1462,
-      "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Sealaska Heritage Institute",
-      "url": "https://www.sealaskaheritage.org/feed",
+      "name": "NANA Regional Corporation",
+      "url": "https://www.nana.com/feed",
       "category": "Native",
       "status": "ok",
       "items": 10,
-      "latency_ms": 1320,
-      "last_updated": "Thu, 23 Apr 2026 22:13:32 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Alaska DHS&EM Alerts",
-      "url": "https://ready.alaska.gov/feed",
-      "category": "Emergency",
-      "status": "ok",
-      "items": 15,
-      "latency_ms": 1452,
+      "latency_ms": 699,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
@@ -2008,47 +2018,37 @@
       "status": "warning",
       "error": "No entries found in feed",
       "items": 0,
-      "latency_ms": 794,
+      "latency_ms": 767,
       "probation_status": "probation"
     },
     {
-      "name": "Ahtna Inc",
-      "url": "https://www.ahtna.com/feed",
+      "name": "Alaska AK Department of Health",
+      "url": "https://health.alaska.gov/feed",
+      "category": "Health",
+      "status": "ok",
+      "items": 15,
+      "latency_ms": 1524,
+      "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Cook Inlet Region Inc (CIRI)",
+      "url": "https://www.ciri.com/feed",
       "category": "Native",
       "status": "ok",
       "items": 15,
-      "latency_ms": 968,
+      "latency_ms": 1471,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
     {
-      "name": "NANA Regional Corporation",
-      "url": "https://www.nana.com/feed",
-      "category": "Native",
+      "name": "Alaska DHS&EM Alerts",
+      "url": "https://ready.alaska.gov/feed",
+      "category": "Emergency",
       "status": "ok",
-      "items": 10,
-      "latency_ms": 970,
+      "items": 15,
+      "latency_ms": 1663,
       "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Alaska Village Electric Coop",
-      "url": "https://avec.org/feed",
-      "category": "Infrastructure",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 1966,
-      "last_updated": "Sun, 29 Mar 2026 17:57:24 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "The Aleut Corporation",
-      "url": "https://www.aleutcorp.com/feed",
-      "category": "Native",
-      "status": "ok",
-      "items": 8,
-      "latency_ms": 556,
-      "last_updated": "Wed, 15 Apr 2026 21:30:42 +0000",
       "probation_status": "probation"
     },
     {
@@ -2058,17 +2058,7 @@
       "status": "warning",
       "error": "No entries found in feed",
       "items": 0,
-      "latency_ms": 884,
-      "probation_status": "probation"
-    },
-    {
-      "name": "Cook Inlet Region Inc (CIRI)",
-      "url": "https://www.ciri.com/feed",
-      "category": "Native",
-      "status": "ok",
-      "items": 15,
-      "latency_ms": 1381,
-      "last_updated": "Unknown",
+      "latency_ms": 1051,
       "probation_status": "probation"
     },
     {
@@ -2077,28 +2067,28 @@
       "category": "Government",
       "status": "ok",
       "items": 15,
-      "latency_ms": 1878,
+      "latency_ms": 1986,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
     {
-      "name": "Interior Regional Health Services",
-      "url": "https://www.irhs.org/feed",
-      "category": "Health",
-      "status": "warning",
-      "error": "No entries found in feed",
-      "items": 0,
-      "latency_ms": 242,
-      "probation_status": "probation"
-    },
-    {
-      "name": "Alaska AK Department of Health",
-      "url": "https://health.alaska.gov/feed",
-      "category": "Health",
+      "name": "Sealaska Heritage Institute",
+      "url": "https://www.sealaskaheritage.org/feed",
+      "category": "Native",
       "status": "ok",
-      "items": 15,
-      "latency_ms": 2042,
-      "last_updated": "Unknown",
+      "items": 10,
+      "latency_ms": 1739,
+      "last_updated": "Thu, 23 Apr 2026 22:13:32 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Bristol Bay Native Corp (BBNC)",
+      "url": "https://www.bbnc.net/feed",
+      "category": "Native",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 1202,
+      "last_updated": "Wed, 29 Apr 2026 20:48:38 +0000",
       "probation_status": "probation"
     },
     {
@@ -2107,7 +2097,7 @@
       "category": "Health",
       "status": "ok",
       "items": 15,
-      "latency_ms": 613,
+      "latency_ms": 636,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
@@ -2118,27 +2108,7 @@
       "status": "warning",
       "error": "No entries found in feed",
       "items": 0,
-      "latency_ms": 264,
-      "probation_status": "probation"
-    },
-    {
-      "name": "Arctic Slope Regional Corp (ASRC)",
-      "url": "https://www.asrc.com/feed",
-      "category": "Native",
-      "status": "ok",
-      "items": 3,
-      "latency_ms": 1373,
-      "last_updated": "Sat, 17 Dec 2022 22:11:16 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Copper River Native Assoc Tribal",
-      "url": "https://www.crnativetribal.org/feed",
-      "category": "Native",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='www.crnativetribal.org', port=443): Max retries exceeded with url: /feed (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f86906da260>: Failed to establish a new connection: [Errno -2] Name or service not known'))",
-      "items": 0,
-      "latency_ms": 51,
+      "latency_ms": 265,
       "probation_status": "probation"
     },
     {
@@ -2148,47 +2118,17 @@
       "status": "error",
       "error": "<unknown>:90:88: mismatched tag",
       "items": 0,
-      "latency_ms": 669,
+      "latency_ms": 886,
       "probation_status": "probation"
     },
     {
-      "name": "Native Village of Barrow",
-      "url": "https://www.inupiatcommunity.com/feed",
-      "category": "Native",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='www.inupiatcommunity.com', port=443): Max retries exceeded with url: /feed (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f86906dba90>: Failed to establish a new connection: [Errno -2] Name or service not known'))",
-      "items": 0,
-      "latency_ms": 48,
-      "probation_status": "probation"
-    },
-    {
-      "name": "Copper River Native Assoc",
-      "url": "https://www.crnative.org/feed",
-      "category": "Health",
-      "status": "ok",
-      "items": 3,
-      "latency_ms": 783,
-      "last_updated": "Wed, 11 Feb 2026 17:20:04 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "AK Native Village Corp Association",
-      "url": "https://www.anvca.biz/feed",
+      "name": "Salamatof Tribe News",
+      "url": "https://www.salamatoftribe.com/news",
       "category": "Native",
       "status": "ok",
-      "items": 3,
-      "latency_ms": 1207,
+      "items": 4,
+      "latency_ms": 5484,
       "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Bristol Bay Native Corp (BBNC)",
-      "url": "https://www.bbnc.net/feed",
-      "category": "Native",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 1407,
-      "last_updated": "Wed, 29 Apr 2026 20:48:38 +0000",
       "probation_status": "probation"
     },
     {
@@ -2197,37 +2137,47 @@
       "category": "Health",
       "status": "ok",
       "items": 10,
-      "latency_ms": 1020,
+      "latency_ms": 1064,
       "last_updated": "Mon, 04 May 2026 18:45:43 +0000",
       "probation_status": "probation"
     },
     {
-      "name": "Southeast AK Regional Health (SEARHC)",
-      "url": "https://www.searhc.org/feed",
-      "category": "Health",
+      "name": "The Aleut Corporation",
+      "url": "https://www.aleutcorp.com/feed",
+      "category": "Native",
       "status": "ok",
-      "items": 13,
-      "latency_ms": 766,
-      "last_updated": "Unknown",
+      "items": 8,
+      "latency_ms": 1628,
+      "last_updated": "Wed, 15 Apr 2026 21:30:42 +0000",
       "probation_status": "probation"
     },
     {
-      "name": "Alaska Native Coalition",
-      "url": "https://www.alaskanativecoalition.org/feed",
+      "name": "Native Village of Barrow",
+      "url": "https://www.inupiatcommunity.com/feed",
       "category": "Native",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='www.alaskanativecoalition.org', port=443): Max retries exceeded with url: /feed (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f86906d8d30>: Failed to establish a new connection: [Errno -2] Name or service not known'))",
+      "error": "HTTPSConnectionPool(host='www.inupiatcommunity.com', port=443): Max retries exceeded with url: /feed (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2ca4408580>: Failed to establish a new connection: [Errno -2] Name or service not known'))",
       "items": 0,
-      "latency_ms": 52,
+      "latency_ms": 115,
       "probation_status": "probation"
     },
     {
-      "name": "Kodiak Area Native Assoc (KANA)",
-      "url": "https://www.kanaweb.org/feed",
+      "name": "Copper River Native Assoc",
+      "url": "https://www.crnative.org/feed",
       "category": "Health",
       "status": "ok",
-      "items": 9,
-      "latency_ms": 1053,
+      "items": 3,
+      "latency_ms": 844,
+      "last_updated": "Wed, 11 Feb 2026 17:20:04 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Kenaitze Indian Tribe",
+      "url": "https://www.kenaitze.org/feed/",
+      "category": "Native",
+      "status": "ok",
+      "items": 15,
+      "latency_ms": 385,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
@@ -2237,37 +2187,7 @@
       "category": "Health",
       "status": "ok",
       "items": 15,
-      "latency_ms": 1098,
-      "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Metlakatla Indian Community",
-      "url": "https://www.metlakatla.com/feed/",
-      "category": "Native",
-      "status": "warning",
-      "error": "No entries found in feed",
-      "items": 0,
-      "latency_ms": 307,
-      "probation_status": "probation"
-    },
-    {
-      "name": "Metlakatla Indian Community",
-      "url": "https://www.metlakatla.com/feed/",
-      "category": "Native",
-      "status": "warning",
-      "error": "No entries found in feed",
-      "items": 0,
-      "latency_ms": 343,
-      "probation_status": "probation"
-    },
-    {
-      "name": "Kenaitze Indian Tribe",
-      "url": "https://www.kenaitze.org/feed/",
-      "category": "Native",
-      "status": "ok",
-      "items": 15,
-      "latency_ms": 658,
+      "latency_ms": 922,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
@@ -2277,38 +2197,38 @@
       "category": "Native",
       "status": "ok",
       "items": 10,
-      "latency_ms": 371,
+      "latency_ms": 194,
       "last_updated": "Mon, 04 May 2026 22:01:36 +0000",
       "probation_status": "probation"
     },
     {
-      "name": "Central Council Tlingit Haida",
-      "url": "https://www.ccthita.org/feed",
-      "category": "Native",
-      "status": "ok",
-      "items": 1,
-      "latency_ms": 826,
-      "last_updated": "Thu, 01 May 2025 17:20:21 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "KNBA Native Radio Anchorage",
-      "url": "https://www.knba.org/news.rss",
+      "name": "ANCSA Regional Association",
+      "url": "https://www.ancsaregional.com/feed",
       "category": "Native",
       "status": "ok",
       "items": 10,
-      "latency_ms": 120,
-      "last_updated": "Tue, 05 May 2026 10:24:43 GMT",
+      "latency_ms": 1894,
+      "last_updated": "Tue, 31 Mar 2026 21:08:19 +0000",
       "probation_status": "probation"
     },
     {
-      "name": "The Alaska Music Podcast",
-      "url": "https://feed.podbean.com/kurtriemann/feed.xml",
-      "category": "Music & Media",
+      "name": "Arctic Slope Regional Corp (ASRC)",
+      "url": "https://www.asrc.com/feed",
+      "category": "Native",
       "status": "ok",
-      "items": 91,
-      "latency_ms": 247,
-      "last_updated": "Mon, 29 Dec 2025 14:08:35 -0900",
+      "items": 3,
+      "latency_ms": 2432,
+      "last_updated": "Sat, 17 Dec 2022 22:11:16 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Southeast AK Regional Health (SEARHC)",
+      "url": "https://www.searhc.org/feed",
+      "category": "Health",
+      "status": "ok",
+      "items": 13,
+      "latency_ms": 1492,
+      "last_updated": "Unknown",
       "probation_status": "probation"
     },
     {
@@ -2318,37 +2238,7 @@
       "status": "error",
       "error": "<unknown>:2:1326: not well-formed (invalid token)",
       "items": 0,
-      "latency_ms": 409,
-      "probation_status": "probation"
-    },
-    {
-      "name": "Salamatof Tribe",
-      "url": "https://www.salamatoftribe.com/feed",
-      "category": "Native",
-      "status": "ok",
-      "items": 4,
-      "latency_ms": 897,
-      "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Southcentral Foundation (SCF)",
-      "url": "https://www.southcentralfoundation.com/feed",
-      "category": "Health",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 1720,
-      "last_updated": "Thu, 20 Nov 2025 21:46:22 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Alaska Native News",
-      "url": "https://alaska-native-news.com/feed",
-      "category": "Native",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 363,
-      "last_updated": "Mon, 04 May 2026 15:51:16 +0000",
+      "latency_ms": 239,
       "probation_status": "probation"
     },
     {
@@ -2357,18 +2247,88 @@
       "category": "Native",
       "status": "ok",
       "items": 8,
-      "latency_ms": 1109,
+      "latency_ms": 1215,
       "last_updated": "Fri, 24 Apr 2026 18:42:15 +0000",
       "probation_status": "probation"
     },
     {
-      "name": "Indian Country Today Alaska",
-      "url": "https://ictnews.org/tag/alaska/feed",
+      "name": "Koniag Inc",
+      "url": "https://www.koniag.com/feed",
       "category": "Native",
       "status": "ok",
       "items": 10,
-      "latency_ms": 294,
-      "last_updated": "Mon, 27 Apr 2026 04:24:03 +0000",
+      "latency_ms": 2897,
+      "last_updated": "Thu, 30 Apr 2026 19:24:48 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Central Council Tlingit Haida",
+      "url": "https://www.ccthita.org/feed",
+      "category": "Native",
+      "status": "ok",
+      "items": 1,
+      "latency_ms": 1856,
+      "last_updated": "Thu, 01 May 2025 17:20:21 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "The Alaska Music Podcast",
+      "url": "https://feed.podbean.com/kurtriemann/feed.xml",
+      "category": "Music & Media",
+      "status": "ok",
+      "items": 91,
+      "latency_ms": 223,
+      "last_updated": "Mon, 29 Dec 2025 14:08:35 -0900",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Metlakatla Indian Community",
+      "url": "https://www.metlakatla.com/feed/",
+      "category": "Native",
+      "status": "warning",
+      "error": "No entries found in feed",
+      "items": 0,
+      "latency_ms": 1188,
+      "probation_status": "probation"
+    },
+    {
+      "name": "Metlakatla Indian Community",
+      "url": "https://www.metlakatla.com/feed/",
+      "category": "Native",
+      "status": "warning",
+      "error": "No entries found in feed",
+      "items": 0,
+      "latency_ms": 1233,
+      "probation_status": "probation"
+    },
+    {
+      "name": "KNBA Native Radio Anchorage",
+      "url": "https://www.knba.org/news.rss",
+      "category": "Native",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 102,
+      "last_updated": "Tue, 05 May 2026 10:24:43 GMT",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Alaska Native News",
+      "url": "https://alaska-native-news.com/feed",
+      "category": "Native",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 327,
+      "last_updated": "Mon, 04 May 2026 19:59:16 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "KBBI Homer",
+      "url": "https://kbbi.org/feed",
+      "category": "Radio",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='kbbi.org', port=443): Max retries exceeded with url: /feed (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f2cac20f670>, 'Connection to kbbi.org timed out. (connect timeout=12)'))",
+      "items": 0,
+      "latency_ms": 12075,
       "probation_status": "probation"
     },
     {
@@ -2378,77 +2338,7 @@
       "status": "warning",
       "error": "No entries found in feed",
       "items": 0,
-      "latency_ms": 377,
-      "probation_status": "probation"
-    },
-    {
-      "name": "ANCSA Regional Association",
-      "url": "https://www.ancsaregional.com/feed",
-      "category": "Native",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 2163,
-      "last_updated": "Tue, 31 Mar 2026 21:08:19 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Alaska Signal (Music)",
-      "url": "https://alaskasignal.com/category/music/feed/",
-      "category": "Music & Media",
-      "status": "ok",
-      "items": 3,
-      "latency_ms": 713,
-      "last_updated": "Sun, 01 Dec 2024 14:56:02 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Alaska Native Heritage Center",
-      "url": "https://www.alaskanative.net/feed",
-      "category": "Native",
-      "status": "ok",
-      "items": 15,
-      "latency_ms": 511,
-      "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Kawerak Inc (Bering Strait)",
-      "url": "https://www.kawerak.org/feed",
-      "category": "Native",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 1165,
-      "last_updated": "Thu, 30 Apr 2026 21:55:31 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "CNFAIC Avalanche Center",
-      "url": "https://www.cnfaic.org/feed/",
-      "category": "Emergency",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 389,
-      "last_updated": "Wed, 29 Apr 2026 17:35:46 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "NWS Alaska Alerts (CAP)",
-      "url": "https://alerts.weather.gov/cap/ak.php?x=0",
-      "category": "Emergency",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='alerts.weather.gov', port=443): Max retries exceeded with url: /cap/ak.php?x=0 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f8670f48760>: Failed to establish a new connection: [Errno -2] Name or service not known'))",
-      "items": 0,
-      "latency_ms": 71,
-      "probation_status": "probation"
-    },
-    {
-      "name": "NWS APRFC River Forecast",
-      "url": "https://water.weather.gov/ahps2/rss/alert/ak.xml",
-      "category": "Emergency",
-      "status": "error",
-      "error": "HTTPSConnectionPool(host='water.weather.gov', port=443): Max retries exceeded with url: /ahps2/rss/alert/ak.xml (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f8680d9be50>: Failed to establish a new connection: [Errno -2] Name or service not known'))",
-      "items": 0,
-      "latency_ms": 70,
+      "latency_ms": 334,
       "probation_status": "probation"
     },
     {
@@ -2457,8 +2347,108 @@
       "category": "Music & Media",
       "status": "ok",
       "items": 10,
-      "latency_ms": 1129,
+      "latency_ms": 986,
       "last_updated": "Tue, 27 Feb 2024 21:08:23 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Indian Country Today Alaska",
+      "url": "https://ictnews.org/tag/alaska/feed",
+      "category": "Native",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 239,
+      "last_updated": "Mon, 27 Apr 2026 04:24:03 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Alaska Signal (Music)",
+      "url": "https://alaskasignal.com/category/music/feed/",
+      "category": "Music & Media",
+      "status": "ok",
+      "items": 3,
+      "latency_ms": 753,
+      "last_updated": "Sun, 01 Dec 2024 14:56:02 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Southcentral Foundation (SCF)",
+      "url": "https://www.southcentralfoundation.com/feed",
+      "category": "Health",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 3457,
+      "last_updated": "Thu, 20 Nov 2025 21:46:22 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "AK Concerts",
+      "url": "https://akconcerts.com/feed",
+      "category": "Music & Media",
+      "status": "ok",
+      "items": 15,
+      "latency_ms": 983,
+      "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Native News Online",
+      "url": "https://www.nativenews.net/feed/",
+      "category": "Native",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 998,
+      "last_updated": "Mon, 04 May 2026 23:20:12 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Kawerak Inc (Bering Strait)",
+      "url": "https://www.kawerak.org/feed",
+      "category": "Native",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 1939,
+      "last_updated": "Thu, 30 Apr 2026 21:55:31 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Assoc of Village Council Presidents (AVCP)",
+      "url": "https://www.avcp.org/feed",
+      "category": "Native",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 3023,
+      "last_updated": "Mon, 27 Apr 2026 19:46:15 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "NWS Alaska Alerts (CAP)",
+      "url": "https://alerts.weather.gov/cap/ak.php?x=0",
+      "category": "Emergency",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='alerts.weather.gov', port=443): Max retries exceeded with url: /cap/ak.php?x=0 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2cacb27e80>: Failed to establish a new connection: [Errno -2] Name or service not known'))",
+      "items": 0,
+      "latency_ms": 62,
+      "probation_status": "probation"
+    },
+    {
+      "name": "CNFAIC Avalanche Center",
+      "url": "https://www.cnfaic.org/feed/",
+      "category": "Emergency",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 409,
+      "last_updated": "Wed, 29 Apr 2026 17:35:46 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "NWS APRFC River Forecast",
+      "url": "https://water.weather.gov/ahps2/rss/alert/ak.xml",
+      "category": "Emergency",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='water.weather.gov', port=443): Max retries exceeded with url: /ahps2/rss/alert/ak.xml (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2cacb244c0>: Failed to establish a new connection: [Errno -2] Name or service not known'))",
+      "items": 0,
+      "latency_ms": 56,
       "probation_status": "probation"
     },
     {
@@ -2468,7 +2458,37 @@
       "status": "warning",
       "error": "No entries found in feed",
       "items": 0,
-      "latency_ms": 542,
+      "latency_ms": 642,
+      "probation_status": "probation"
+    },
+    {
+      "name": "Alaska Native Coalition",
+      "url": "https://www.alaskanativecoalition.org/feed",
+      "category": "Native",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='www.alaskanativecoalition.org', port=443): Max retries exceeded with url: /feed (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2cac143a00>: Failed to establish a new connection: [Errno -2] Name or service not known'))",
+      "items": 0,
+      "latency_ms": 2307,
+      "probation_status": "probation"
+    },
+    {
+      "name": "Native Voice One",
+      "url": "https://www.nv1.org/feed",
+      "category": "Native",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 1172,
+      "last_updated": "Tue, 05 May 2026 11:14:33 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Sealaska Corporation",
+      "url": "https://www.sealaska.com/feed",
+      "category": "Native",
+      "status": "ok",
+      "items": 524,
+      "latency_ms": 5406,
+      "last_updated": "Wed, 15 Apr 2026 00:00:45 +0000",
       "probation_status": "probation"
     },
     {
@@ -2478,47 +2498,7 @@
       "status": "warning",
       "error": "No entries found in feed",
       "items": 0,
-      "latency_ms": 512,
-      "probation_status": "probation"
-    },
-    {
-      "name": "Koniag Inc",
-      "url": "https://www.koniag.com/feed",
-      "category": "Native",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 2846,
-      "last_updated": "Thu, 30 Apr 2026 19:24:48 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Native News Online",
-      "url": "https://www.nativenews.net/feed/",
-      "category": "Native",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 1028,
-      "last_updated": "Mon, 04 May 2026 23:20:12 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "DEC Air Quality Advisories",
-      "url": "https://proxy.alaskaintel.com/rss/dec-air",
-      "category": "Environment",
-      "status": "error",
-      "error": "<unknown>:2:1326: not well-formed (invalid token)",
-      "items": 0,
-      "latency_ms": 181,
-      "probation_status": "probation"
-    },
-    {
-      "name": "ADF&G Emergency Orders",
-      "url": "https://proxy.alaskaintel.com/rss/adfg-sf",
-      "category": "Fisheries",
-      "status": "error",
-      "error": "<unknown>:2:1326: not well-formed (invalid token)",
-      "items": 0,
-      "latency_ms": 166,
+      "latency_ms": 994,
       "probation_status": "probation"
     },
     {
@@ -2528,57 +2508,87 @@
       "status": "warning",
       "error": "No entries found in feed",
       "items": 0,
-      "latency_ms": 613,
+      "latency_ms": 734,
       "probation_status": "probation"
     },
     {
-      "name": "Native Voice One",
-      "url": "https://www.nv1.org/feed",
+      "name": "Alaska Native Heritage Center",
+      "url": "https://www.alaskanative.net/feed",
       "category": "Native",
       "status": "ok",
-      "items": 10,
-      "latency_ms": 970,
-      "last_updated": "Tue, 05 May 2026 11:14:33 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Coast Guard District 17 Alaska",
-      "url": "https://www.news.uscg.mil/RSS/tabid/197/ctl/GetFeed/mid/804/Default.aspx?feed=17thdistrict",
-      "category": "Maritime",
-      "status": "error",
-      "error": "<unknown>:10:2: mismatched tag",
-      "items": 0,
-      "latency_ms": 5099,
-      "probation_status": "probation"
-    },
-    {
-      "name": "AK Concerts",
-      "url": "https://akconcerts.com/feed",
-      "category": "Music & Media",
-      "status": "ok",
       "items": 15,
-      "latency_ms": 1418,
+      "latency_ms": 1238,
       "last_updated": "Unknown",
       "probation_status": "probation"
     },
     {
-      "name": "Sealaska Corporation",
-      "url": "https://www.sealaska.com/feed",
-      "category": "Native",
-      "status": "ok",
-      "items": 524,
-      "latency_ms": 4800,
-      "last_updated": "Wed, 15 Apr 2026 00:00:45 +0000",
+      "name": "ADF&G Emergency Orders",
+      "url": "https://proxy.alaskaintel.com/rss/adfg-sf",
+      "category": "Fisheries",
+      "status": "error",
+      "error": "<unknown>:2:1326: not well-formed (invalid token)",
+      "items": 0,
+      "latency_ms": 503,
       "probation_status": "probation"
     },
     {
-      "name": "KBBI Homer",
-      "url": "https://kbbi.org/feed",
-      "category": "Radio",
+      "name": "DEC Air Quality Advisories",
+      "url": "https://proxy.alaskaintel.com/rss/dec-air",
+      "category": "Environment",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='kbbi.org', port=443): Max retries exceeded with url: /feed (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f86808cb280>, 'Connection to kbbi.org timed out. (connect timeout=12)'))",
+      "error": "<unknown>:2:1326: not well-formed (invalid token)",
       "items": 0,
-      "latency_ms": 12054,
+      "latency_ms": 561,
+      "probation_status": "probation"
+    },
+    {
+      "name": "Copper River Native Assoc Tribal",
+      "url": "https://www.crnativetribal.org/feed",
+      "category": "Native",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='www.crnativetribal.org', port=443): Max retries exceeded with url: /feed (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2ca4fda530>: Failed to establish a new connection: [Errno -2] Name or service not known'))",
+      "items": 0,
+      "latency_ms": 3839,
+      "probation_status": "probation"
+    },
+    {
+      "name": "KNOM Nome Indigenous Radio",
+      "url": "https://www.knom.org/feed",
+      "category": "Native",
+      "status": "ok",
+      "items": 9,
+      "latency_ms": 2391,
+      "last_updated": "Tue, 05 May 2026 02:46:57 +0000",
+      "probation_status": "probation"
+    },
+    {
+      "name": "AK Native Village Corp Association",
+      "url": "https://www.anvca.biz/feed",
+      "category": "Native",
+      "status": "ok",
+      "items": 3,
+      "latency_ms": 5797,
+      "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "USGS Alaska Science",
+      "url": "https://www.usgs.gov/feed",
+      "category": "Science",
+      "status": "ok",
+      "items": 30,
+      "latency_ms": 1935,
+      "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Rural Alaska Community Action (RurAL CAP)",
+      "url": "https://www.ruralcap.com/feed",
+      "category": "Native",
+      "status": "ok",
+      "items": 10,
+      "latency_ms": 3837,
+      "last_updated": "Fri, 27 Mar 2026 21:24:27 +0000",
       "probation_status": "probation"
     },
     {
@@ -2588,47 +2598,7 @@
       "status": "warning",
       "error": "No entries found in feed",
       "items": 0,
-      "latency_ms": 1791,
-      "probation_status": "probation"
-    },
-    {
-      "name": "KNOM Nome Indigenous Radio",
-      "url": "https://www.knom.org/feed",
-      "category": "Native",
-      "status": "ok",
-      "items": 9,
-      "latency_ms": 2560,
-      "last_updated": "Tue, 05 May 2026 02:46:57 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "USGS Alaska Science",
-      "url": "https://www.usgs.gov/feed",
-      "category": "Science",
-      "status": "ok",
-      "items": 30,
-      "latency_ms": 1755,
-      "last_updated": "Unknown",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Assoc of Village Council Presidents (AVCP)",
-      "url": "https://www.avcp.org/feed",
-      "category": "Native",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 3531,
-      "last_updated": "Mon, 27 Apr 2026 19:46:15 +0000",
-      "probation_status": "probation"
-    },
-    {
-      "name": "Rural Alaska Community Action (RurAL CAP)",
-      "url": "https://www.ruralcap.com/feed",
-      "category": "Native",
-      "status": "ok",
-      "items": 10,
-      "latency_ms": 3709,
-      "last_updated": "Fri, 27 Mar 2026 21:24:27 +0000",
+      "latency_ms": 2231,
       "probation_status": "probation"
     },
     {
@@ -2637,8 +2607,38 @@
       "category": "Emergency",
       "status": "ok",
       "items": 15,
-      "latency_ms": 4281,
+      "latency_ms": 3815,
       "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Interior Regional Health Services",
+      "url": "https://www.irhs.org/feed",
+      "category": "Health",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='www.irhs.org', port=443): Max retries exceeded with url: /feed (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))",
+      "items": 0,
+      "latency_ms": 7172,
+      "probation_status": "probation"
+    },
+    {
+      "name": "Salamatof Tribe",
+      "url": "https://www.salamatoftribe.com/feed",
+      "category": "Native",
+      "status": "ok",
+      "items": 4,
+      "latency_ms": 6677,
+      "last_updated": "Unknown",
+      "probation_status": "probation"
+    },
+    {
+      "name": "Kodiak Area Native Assoc (KANA)",
+      "url": "https://www.kanaweb.org/feed",
+      "category": "Health",
+      "status": "error",
+      "error": "HTTPSConnectionPool(host='www.kanaweb.org', port=443): Read timed out. (read timeout=12)",
+      "items": 0,
+      "latency_ms": 12278,
       "probation_status": "probation"
     },
     {
@@ -2646,9 +2646,9 @@
       "url": "https://www.eklutna.com/feed",
       "category": "Native",
       "status": "error",
-      "error": "HTTPSConnectionPool(host='www.eklutna.com', port=443): Max retries exceeded with url: /feed (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f86906dba00>, 'Connection to www.eklutna.com timed out. (connect timeout=12)'))",
+      "error": "HTTPSConnectionPool(host='www.eklutna.com', port=443): Max retries exceeded with url: /feed (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f2ca4e34940>, 'Connection to www.eklutna.com timed out. (connect timeout=12)'))",
       "items": 0,
-      "latency_ms": 12048,
+      "latency_ms": 12121,
       "probation_status": "probation"
     },
     {
@@ -2657,7 +2657,7 @@
       "category": "Health",
       "status": "ok",
       "items": 10,
-      "latency_ms": 20057,
+      "latency_ms": 20193,
       "last_updated": "Tue, 05 May 2026 00:59:53 +0000",
       "probation_status": "probation"
     }
